@@ -1,0 +1,11 @@
+pip install numpy
+pip install joblib
+pip install sklearn
+pip install pandas
+pip install konlpy
+pip install pickle
+pip install selenium
+
+..등등 없을 때마다 까시오
+
+python version 3.7.9

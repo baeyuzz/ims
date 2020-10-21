@@ -4,6 +4,7 @@ import csv
 
 category = ['글로벌', '도전', '성실', '의사소통', '성취지향', '주인의식', '창의', '정직']
 keyword = [
+    'IT 문화', '글로벌','외국어'
     "도전", "IT 신기술", "트렌드",
     "IT 성실", "근면한", "열심히",
     "IT 소통", "팀워크", "협동",
@@ -45,7 +46,7 @@ for i in range(len(keyword)):
     elem = driver.find_element_by_xpath('//*[@id="snb"]/div/ul/li[2]')
     elem.click()
 
-    # 1년 클릭
+    # 1년
     elem = driver.find_element_by_xpath('//*[@id="_nx_option_date"]/div[1]/ul[1]/li[6]')
     elem.click()
 
@@ -65,7 +66,7 @@ for i in range(len(keyword)):
                 title = news[j].find_element_by_xpath(xpath + '/dt/a').get_attribute("title").replace(",", "").replace(
                     ";", "").replace("\"", " ")
                 csv_writer.writerow([label, title])
-                print(title)
+                # print(title)
 
                 # 본문
                 article = news[j].find_element_by_xpath(xpath + '/dd[2]').text.replace("\n", " ").replace(",",

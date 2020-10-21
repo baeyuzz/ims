@@ -2,27 +2,27 @@ from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from datetime import datetime
 import csv
+import time
 
-category = ['글로벌', '도전', '성실', '의사소통', '성취지향', '주인의식', '창의']  # 10개
+category = ['글로벌', '도전', '성실', '의사소통', '성취지향', '주인의식', '창의', '정직']
 keyword = [
-    "IT 문화", "글로벌", "외국어",
-    "도전", "IT 신기술", "트렌드",
-    "성실한", "IT 근면한", "열심히",
-    "IT 소통", "팀워크", "협동",
-    "성취", "IT 달성", "목표",
-    "IT 책임", "의무", "자기주도",
-    "창의", "IT 창조", "독창"
+    '문화 역량', '글로벌 역량', '외국어 역량',
+    "도전 역량", "신기술 역량", "트렌드 역량",
+    "성실 역량", "근면 역량", "열심히 역량",
+    "소통 역량", "팀워크 역량", "협업 역량",
+    "성취 역량", "달성 역량", "목표 역량",
+    "책임 역량", "의무 역량", "자기주도 역량",
+    "창의 역량", "창조 역량", "독창 역량",
+    '청렴 역량', '윤리 역량', '정직 역량'
 ]
 
-#오늘, 일년전 날짜 계산
 today = datetime.today()
-past = datetime(today.year-1, today.month, today.day)
+past = datetime(today.year - 1, today.month, today.day)
 today = today.strftime("%Y.%m.%d")
 past = past.strftime("%Y.%m.%d")
 
 baseUrl = "https://section.blog.naver.com/Search/Post.nhn"
-baseUrl = baseUrl + "?startDate="+past+"&endDate="+today + "&rangeType=PERIOD"
-
+baseUrl = baseUrl + "?startDate=" + past + "&endDate=" + today + "&rangeType=PERIOD"
 
 driver = webdriver.Chrome("C:\ssafy\chromedriver.exe")
 driver.get(baseUrl)
@@ -31,7 +31,7 @@ for i in range(len(keyword)):
     label = (i // 3) + 1
     filename = category[label - 1]
 
-    savePath = "C:\ssafy\project3\s03p31a101\AI\csv\\blog" + filename + ".csv"
+    savePath = "C:\ssafy\project3\s03p31a101\AI\csv\\blog" + filename + str(i) + ".csv"
     saveFile = open(savePath, 'w', encoding='utf-8', newline='')
 
     csv_writer = csv.writer(saveFile)
@@ -48,17 +48,16 @@ for i in range(len(keyword)):
     elem = driver.find_element_by_xpath('//*[@id="header"]/div[1]/div/div[2]/form/fieldset/a[1]')
     elem.click()
 
-    ###############300페이지 블로그 끌어오기
-    for page in range(1, 201):
+    for page in range(1, 21):
+        time.sleep(0.2)
         blogs = driver.find_elements_by_class_name("list_search_post")
         for blog in blogs:
             try:
-                #제목
+                # # 제목
                 title = blog.find_element_by_class_name("title").text.replace(",", "").replace(";", "")
-                print(title)
                 csv_writer.writerow([label, title])
 
-                #본문
+                # 본문
                 body = blog.find_element_by_class_name("text").text.replace("\n", " ").replace(",", "").replace(";", "")
                 csv_writer.writerow([label, body])
 
@@ -66,7 +65,7 @@ for i in range(len(keyword)):
                 print("Error")
                 continue
 
-        driver.get(baseUrl + "&pageNo=" + str(page+1)+"&keyword="+keyword[i])
+        driver.get(baseUrl + "&pageNo=" + str(page + 1) + "&keyword=" + keyword[i])
     ###############
 
     saveFile.close()

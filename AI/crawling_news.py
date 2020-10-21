@@ -2,15 +2,15 @@ from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 import csv
 
-category = ['글로벌', '도전', '성실', '의사소통', '성취지향', '주인의식', '창의']  # 10개
+category = ['글로벌', '도전', '성실', '의사소통', '성취지향', '주인의식', '창의', '정직']
 keyword = [
-    "IT 문화 -문화상품권", "IT 글로벌", "외국어",
     "도전", "IT 신기술", "트렌드",
-    "성실한", "IT 근면한", "열심히",
+    "IT 성실", "근면한", "열심히",
     "IT 소통", "팀워크", "협동",
     "성취", "IT 달성", "목표",
     "IT 책임", "의무", "자기주도",
-    "창의", "IT 창조", "독창"
+    "창의", "IT 창조", "독창",
+    '청렴', 'IT 윤리', '정직'
 ]
 
 driver = webdriver.Chrome("C:\ssafy\chromedriver.exe")
@@ -24,7 +24,7 @@ for i in range(len(keyword)):
     label = (i // 3) + 1
     filename = category[label - 1]
 
-    savePath = "C:\ssafy\project3\s03p31a101\AI\csv\\" + filename + ".csv"
+    savePath = "C:\ssafy\project3\s03p31a101\AI\csv\\" + filename + str(i) + ".csv"
     saveFile = open(savePath, 'w', encoding='utf-8', newline='')
 
     csv_writer = csv.writer(saveFile)
@@ -49,7 +49,7 @@ for i in range(len(keyword)):
     elem = driver.find_element_by_xpath('//*[@id="_nx_option_date"]/div[1]/ul[1]/li[6]')
     elem.click()
 
-    for page in range(100):
+    for page in range(151):
         news = driver.find_element_by_class_name("type01")
         news = news.find_elements_by_tag_name("li")
 

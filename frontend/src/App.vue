@@ -1,36 +1,30 @@
 <template>
-  <div>
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div> -->
+  <v-fade-transition mode="out-in">
     <router-view />
-  </div>
+  </v-fade-transition>
 </template>
 
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #292321;
-}
+<script>
+  export default {
+    name: 'App',
+    metaInfo: {
+      title: 'App',
+      titleTemplate: '%s | HAPPY JOB',
+      htmlAttrs: { lang: 'en' },
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      ],
+    },
+  }
+</script>
 
-#nav {
-  padding: 30px;
-}
+<style lang="sass">
+  .extra-padding
+    padding-bottom: 96px !important
+    padding-top: 96px !important
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-
-.form-group .content {
-  font-size: 1.2rem;
-}
+    @media screen and (max-width: 959px)
+      padding-top: 48px !important
+      padding-bottom: 48px !important
 </style>

@@ -3,6 +3,7 @@ package com.ssafy.IMS.service.impl;
 import com.ssafy.IMS.exception.BadRequestException;
 import com.ssafy.IMS.model.User;
 import com.ssafy.IMS.payload.ApiResponse;
+import com.ssafy.IMS.payload.SignUpRequest;
 import com.ssafy.IMS.payload.UserIdentityAvailability;
 import com.ssafy.IMS.payload.UserProfile;
 import com.ssafy.IMS.repository.UserRepository;
@@ -30,11 +31,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User addUser(User user) {
-        if (userRepository.existsByEmail(user.getEmail())) {
+    public User addUser(SignUpRequest signUpRequest) {
+        if (userRepository.existsByEmail(signUpRequest.getEmail())) {
             ApiResponse apiResponse = new ApiResponse(Boolean.FALSE, "이미 존재하는 유저입니다.");
             throw new BadRequestException(apiResponse);
         }
+        String username = signUpRequest.getName().toLowerCase();
+
+        String email = signUpRequest.getEmail().toLowerCase();
+
+        String password = signUpRequest.getPassword();
+
+        User user = new User(email, password, username);
+
         return userRepository.save(user);
     }
 

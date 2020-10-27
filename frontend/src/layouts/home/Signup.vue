@@ -24,7 +24,7 @@
             <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn text @click="register" min-width="100px">
-                    <v-icon>person_add</v-icon>
+                    <v-icon>mdi-account-multiple-plus</v-icon>
                     SignUp
                 </v-btn>
             </v-card-actions>

@@ -2,32 +2,13 @@
 
 import Vue from 'vue'
 import Vuetify from 'vuetify/lib/framework'
+import 'vuetify/dist/vuetify.min.css'
 import '@mdi/font/css/materialdesignicons.css'
 
-import {
-  VCol,
-  VRow,
-} from 'vuetify/lib'
-
-Vue.use(Vuetify, {
-  components: {
-    VCol,
-    VRow,
-  },
-  iconfont:'mdi',
-})
+Vue.use(Vuetify)
 
 export default new Vuetify({
-  theme: {
-    dark: false,
-    themes: {
-      light: {
-        primary: '#42a5f6',
-        secondary: '#050b1f',
-        accent: '#204165',
-      },
-      dark: {},
-    },
-  },
-  iconfont:'mdi'
+  icons:{
+    iconfont:'mdi'
+  }
 })

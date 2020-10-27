@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Api(value = "회사에 관한 정보 처리")
 @RequestMapping("/api/company")
+@CrossOrigin(origins = "http://localhost:3000")
+@RestController
 public class CompanyController {
     @Autowired
     private CompanyService companyService;

@@ -39,11 +39,6 @@ export const db = firebase.firestore();
 new Vue({
   router,
   vuetify,
-<<<<<<< HEAD
   store,
   render: h => h(App),
 }).$mount('#app')
-=======
-  render: h => h(App)
-}).$mount("#app");
->>>>>>> 7871b4f51ac9c1eaf8916868ad3b563efa1cfb0a

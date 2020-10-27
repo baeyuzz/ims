@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="cal">
-      <calendar/>
+      <intro/>
     </div>
   </div>
 </template>
@@ -10,14 +10,10 @@
 export default {
   name: "Home",
   components: {
-    Calendar: () => import('@/components/Calendar'),
+    Intro: () => import('@/components/Intro'),
   },
 }
 </script>
 <style scoped>
-.cal {
-  margin: auto;
-  text-align: center;
-  width: 70%;
-}
+
 </style>

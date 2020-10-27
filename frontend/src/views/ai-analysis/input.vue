@@ -1,6 +1,5 @@
 <template>
   <div>
-    <ai-intro />
     <div class="input">
       <ai-input />
     </div>
@@ -11,7 +10,7 @@
 export default {
   name: "AiAnalysis",
   components: {
-    AiIntro: () => import("@/components/AiIntro"),
+    // AiIntro: () => import("@/components/AiIntro"),
     AiInput: () => import("@/components/AiInput"),
   },
 };

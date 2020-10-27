@@ -35,10 +35,9 @@ const router = new Router({
           component: () => import('@/views/ai-analysis/output.vue'),
         },
         {
-          path: "notice",
-          name: "Notice",
+          path: "mypage",
+          name: "Mypage",
           component: () => import("@/views/Mypage.vue")
-          // meta: { src: require('@/assets/pro.jpg') },
         },
         {
           path: "*",

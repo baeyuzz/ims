@@ -1,8 +1,10 @@
 <template>
   <v-app>
-    <v-content>
-      <Calendar></Calendar>
-    </v-content>
+    <v-main>
+      <div class="cal">
+      <Calendar/>
+      </div>
+    </v-main>
   </v-app>
 </template>
 
@@ -18,6 +20,6 @@ export default {
 .cal {
   margin: auto;
   text-align: center;
-  width: 70%;
+  width: 80%;
 }
 </style>

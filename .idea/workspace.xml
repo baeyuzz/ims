@@ -2,11 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1868aa2-cb29-4ffe-9e59-96fef8d75382" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/layouts/home/AppBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/layouts/home/AppBar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/layouts/home/Index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/layouts/home/Index.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/views/ai-analysis/Index.vue" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/api/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/api/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ssafy/IMS/controller/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ssafy/IMS/controller/CompanyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ssafy/IMS/controller/EssayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ssafy/IMS/controller/EssayController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ssafy/IMS/controller/ScheduleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ssafy/IMS/controller/ScheduleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ssafy/IMS/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ssafy/IMS/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ssafy/IMS/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ssafy/IMS/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ssafy/IMS/payload/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ssafy/IMS/payload/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ssafy/IMS/payload/SignUpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ssafy/IMS/payload/UserInfoRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ssafy/IMS/payload/UserProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ssafy/IMS/payload/UserProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ssafy/IMS/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ssafy/IMS/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/ssafy/IMS/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/ssafy/IMS/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/layouts/home/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/layouts/home/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/layouts/home/Signup.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/layouts/home/Signup.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/backend.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/backend.log" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,7 +32,7 @@
     <session id="723002816">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.3" value="5" />
           <entry key="project.open.time.4" value="1" />
@@ -81,7 +95,7 @@
         <entry file="file://$PROJECT_DIR$/flask/app.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="133">
-              <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+              <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -93,7 +107,7 @@
         <entry file="file://$PROJECT_DIR$/flask/testSvc.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
-              <caret line="23" column="25" lean-forward="true" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+              <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -138,7 +152,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -325,8 +339,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="953" y="0" width="974" height="1047" extended-state="1" />
-    <editor active="true" />
+    <frame x="953" y="0" width="974" height="1047" extended-state="0" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24893162" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -446,14 +459,14 @@
     <entry file="file://$PROJECT_DIR$/flask/testSvc.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
-          <caret line="23" column="25" lean-forward="true" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+          <caret line="23" column="25" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/flask/app.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
-          <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>

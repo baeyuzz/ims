@@ -49,6 +49,13 @@ public class User {
 	@Column(name = "company3")
 	private String company3;
 
-
+	public User(String email, String password, String name, String company1, String company2, String company3){
+		this.email = email;
+		this.password = password;
+		this.name = name;
+		this.company1 = company1;
+		this.company2 = company2;
+		this.company3 = company3;
+	}
 
 }

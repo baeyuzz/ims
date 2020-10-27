@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Api(value = "자소서에 관한 정보 처리")
 @RequestMapping("/api/essay")
+@CrossOrigin(origins = "http://localhost:3000")
+@RestController
 public class EssayController {
     @Autowired
     private EssayService essayService;

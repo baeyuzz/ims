@@ -8,6 +8,7 @@ export default new Vuex.Store({
   state: {
     email : '',
     name : '',
+    content : '',
     token: cookies.get('token'),
   },
   actions: {
@@ -20,9 +21,15 @@ export default new Vuex.Store({
     setEmail(state,id) {
       state.id = id
     },
+    setContent(state, content){
+      state.content = content
+    },
     clearMember(state) {
         state.id = '';
         state.name = '';
+    },
+    clearContent(state) {
+      state.content = '';
     },
     logout(state){
       state.token = '';

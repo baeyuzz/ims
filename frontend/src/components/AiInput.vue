@@ -8,9 +8,8 @@
         placeholder="200자 이상 입력해주세요"
         rows="15"
         v-model="content"
-      ></v-textarea>
-
-      <v-btn elevation="2" rounded x-large>분석하기</v-btn>
+      />
+      <v-btn elevation="2" rounded x-large @click='submit'>분석하기</v-btn>
     </v-container>
   </div>
 </template>
@@ -21,6 +20,14 @@ export default {
   data: () => ({
     content: "",
   }),
-  methods: {},
+  methods: {
+    submit(){
+      console.log(this.content);
+      this.$store.commit("setContent", this.content);
+      console.log(this.$store.state.content)
+
+    }
+
+  },
 };
 </script>

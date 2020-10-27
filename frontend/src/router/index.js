@@ -24,16 +24,10 @@ const router = new Router({
           component: () => import('@/views/home/Index.vue'),
         },
         {
-          path: 'recruitment',
-          name: 'Recruitment',
-          // component: () => import('@/views/recruitment.vue'),
-          // meta: { src: require('@/assets/about.jpg') },
-        },
-        {
-          path: 'board',
-          name: 'Board',
-          // component: () => import('@/views/'),
-          // meta: { src: require('@/assets/contact.jpg') },
+          path: 'ai-analysis',
+          name: 'AI-Analysis',
+          component: () => import('@/views/ai-analysis/Index.vue'),
+
         },
         {
           path: 'notice',

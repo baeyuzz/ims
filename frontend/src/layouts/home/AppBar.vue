@@ -56,8 +56,7 @@
       drawer: null,
       items: [
         'Home',
-        'Recruitment',
-        'Board',
+        'AI-Analysis',
         'Notice',
       ],
     }),

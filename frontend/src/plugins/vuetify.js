@@ -2,6 +2,8 @@
 
 import Vue from 'vue'
 import Vuetify from 'vuetify/lib/framework'
+import '@mdi/font/css/materialdesignicons.css'
+
 import {
   VCol,
   VRow,
@@ -12,6 +14,7 @@ Vue.use(Vuetify, {
     VCol,
     VRow,
   },
+  iconfont:'mdi',
 })
 
 export default new Vuetify({
@@ -26,4 +29,5 @@ export default new Vuetify({
       dark: {},
     },
   },
+  iconfont:'mdi'
 })

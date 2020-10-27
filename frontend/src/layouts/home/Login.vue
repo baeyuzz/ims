@@ -30,6 +30,7 @@
 
 <script>
 import Signup from "./Signup";
+import { login } from "../../api/user.js";
 export default {
   data() {
     return {
@@ -54,27 +55,9 @@ export default {
         this.user.email,
         this.user.password,
         function(response) {
-          scope.$store.commit("setIsSigned", true);
-          scope.$store.commit("setUserId", response.data.id);
-
-          findWallet(
-            response.data.id,
-            function(response) {
-              if (response.status == 200) {
-                scope.$store.commit("setWalletAddress", response.data.address);
-              } else {
-                alert("Unexpected status code: " + response.status);
-              }
-              // 창 닫기
-              location.reload();
-            },
-            function(err) {
-              if (err.response != 404) {
-                console.error(err);
-                //alert("지갑 정보를 찾지 못했습니다.");
-              }
-            }
-          );
+          //   scope.$store.commit("setIsSigned", true);
+          //   scope.$store.commit("setUserId", response.data.id);
+          alert("로그인 완료");
         },
         function(error) {
           console.error(error);

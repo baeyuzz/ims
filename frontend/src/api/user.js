@@ -42,7 +42,7 @@ function login(email, password, success, fail) {
   };
 
   instance
-    .post("/api/users/login", JSON.stringify(body))
+    .post("/api/user/login", JSON.stringify(body))
     .then(success)
     .catch(fail);
 }

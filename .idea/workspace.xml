@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f1868aa2-cb29-4ffe-9e59-96fef8d75382" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/AI/testSvc.py" beforeDir="false" afterPath="$PROJECT_DIR$/AI/testSvc.py" afterDir="false" />
-    </list>
+    <list default="true" id="f1868aa2-cb29-4ffe-9e59-96fef8d75382" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,11 +61,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AI/testSvc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="429">
-              <caret line="50" column="30" lean-forward="true" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
+            <state relative-caret-position="437">
+              <caret line="50" column="30" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
               <folding>
                 <element signature="e#25#38#0" expanded="true" />
-                <marker date="1603774275839" expanded="true" signature="1186:1195" ph="..." />
+                <marker date="1603774612108" expanded="true" signature="1186:1195" ph="..." />
               </folding>
             </state>
           </provider>
@@ -112,7 +110,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -299,7 +297,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1227608" />
@@ -405,11 +403,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AI/testSvc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="429">
-          <caret line="50" column="30" lean-forward="true" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
+        <state relative-caret-position="437">
+          <caret line="50" column="30" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
           <folding>
             <element signature="e#25#38#0" expanded="true" />
-            <marker date="1603774275839" expanded="true" signature="1186:1195" ph="..." />
+            <marker date="1603774612108" expanded="true" signature="1186:1195" ph="..." />
           </folding>
         </state>
       </provider>

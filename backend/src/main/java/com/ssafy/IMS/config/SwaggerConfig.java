@@ -39,25 +39,26 @@ public class SwaggerConfig extends WebMvcConfigurerAdapter {
 
     @Bean
     public Docket productApi() {
-        ParameterBuilder aParameterBuilder = new ParameterBuilder();
-        aParameterBuilder.name("Authorization") //헤더 이름
-                .description("Access Tocken") //설명
-                .modelRef(new ModelRef("string"))
-                .parameterType("header")
-                .required(false)
-                .build();
-
-        List<Parameter> aParameters = new ArrayList<>();
-        aParameters.add(aParameterBuilder.build());
+//        ParameterBuilder aParameterBuilder = new ParameterBuilder();
+//        aParameterBuilder
+//                .name("Authorization") //헤더 이름
+//                .description("Access Tocken") //설명
+//                .modelRef(new ModelRef("string"))
+//                .parameterType("header")
+//                .required(false)
+//                .build();
+//
+//        List<Parameter> aParameters = new ArrayList<>();
+//        aParameters.add(aParameterBuilder.build());
 
         return new Docket(DocumentationType.SWAGGER_2)
-                .globalOperationParameters(aParameters)
+//                .globalOperationParameters(aParameters)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.ssafy.IMS"))
                 .paths(PathSelectors.regex("/api.*"))
-                .build()
+                .build();
 //                .apiInfo(metaInfo())
-                .securitySchemes(Arrays.asList(apiKey()));
+//                .securitySchemes(Arrays.asList(apiKey()));
     }
 
 
@@ -69,29 +70,16 @@ public class SwaggerConfig extends WebMvcConfigurerAdapter {
                 .build();
     }
 
-    private ApiKey apiKey() {
-        return new ApiKey("Bearer +accessToken", "Authorization", "header");
-    }
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("swagger-ui.html")
-                .addResourceLocations("classpath:/META-INF/resources/");
-
-        registry.addResourceHandler("/webjars/**")
-                .addResourceLocations("classpath:/META-INF/resources/webjars/");
-    }
+//    private ApiKey apiKey() {
+//        return new ApiKey("Bearer +accessToken", "Authorization", "header");
+//    }
+//    @Override
+//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+//        registry.addResourceHandler("swagger-ui.html")
+//                .addResourceLocations("classpath:/META-INF/resources/");
+//
+//        registry.addResourceHandler("/webjars/**")
+//                .addResourceLocations("classpath:/META-INF/resources/webjars/");
+//    }
 
 }
-//@Configuration
-//@EnableSwagger2
-//public class SwaggerConfig {
-//
-//    @Bean
-//    public Docket api() {
-//        return new Docket(DocumentationType.SWAGGER_2)
-//                .select()
-//                .apis(RequestHandlerSelectors.any()) // 현재 RequestMapping으로 할당된 모든 URL 리스트를 추출
-//                .paths(PathSelectors.ant("/api/**")) // 그중 /api/** 인 URL들만 필터링
-//                .build();
-//    }
-//}

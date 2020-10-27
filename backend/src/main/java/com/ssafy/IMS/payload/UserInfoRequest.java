@@ -7,7 +7,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Data
-public class SignUpRequest {
+public class UserInfoRequest {
 
 	@NotBlank
 	private String name;
@@ -18,4 +18,8 @@ public class SignUpRequest {
 
 	@NotBlank
 	private String password;
+
+	private String company1;
+	private String company2;
+	private String company3;
 }

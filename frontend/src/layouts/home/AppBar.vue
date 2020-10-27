@@ -31,7 +31,7 @@
 
           <v-tab active-class="text--primary"
             class="font-weight-bold"
-            @click.stop="signup = true"> Login 
+            @click.stop="signup = true"> Login
           </v-tab>
         </v-tabs>
       </div>
@@ -67,8 +67,8 @@ import Signup from "./Signup";
       drawer: null,
       items: [
         'Home',
-        'Recruitment',
-        'Board',
+        'AI-Analysis',
+        'Notice',
       ],
       signup: false,
     }),

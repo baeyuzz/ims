@@ -9,5 +9,14 @@ function createInstance() {
   });
   return instance;
 }
+function createInstance2() {
+  const instance = axios.create({
+    baseURL: "http://localhost:5000/",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  });
+  return instance;
+}
 
-export { createInstance };
+export { createInstance, createInstance2 };

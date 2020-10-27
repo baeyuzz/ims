@@ -30,7 +30,7 @@ function signup(
   };
 
   instance
-    .post("/api/users", JSON.stringify(user))
+    .post("/api/user/signup", JSON.stringify(user))
     .then(success)
     .catch(fail);
 }

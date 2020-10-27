@@ -42,6 +42,7 @@
 import { signup } from "../../api/user.js";
 
 export default {
+  props: ["signup"],
   data() {
     return {
       user: {
@@ -69,10 +70,10 @@ export default {
           this.user.company3,
           function() {
             alert("회원가입이 완료되었습니다.");
-            vm.$router.push("/");
+            vm.$emit("close");
           },
           function(error) {
-            console.error(error);
+            alert("실패!");
           }
         );
       } else {

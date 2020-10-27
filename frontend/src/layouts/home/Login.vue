@@ -16,11 +16,11 @@
             <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn color="green darken-1" text @click="login" min-width="100px">
-                    <v-icon>power_settings_new</v-icon>
+                    <v-icon>mdi-account</v-icon>
                     LogIn
                 </v-btn>
                 <v-btn text @click.stop="signup = true" min-width="100px">
-                    <v-icon>person_add</v-icon>
+                    <v-icon style="margin-right:5px">mdi-account-multiple-plus</v-icon>
                     Sign Up
                 </v-btn>
                 <v-dialog v-model="signup" max-width="500">

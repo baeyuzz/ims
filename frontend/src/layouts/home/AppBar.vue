@@ -68,7 +68,7 @@ import Signup from "./Signup";
       items: [
         'Home',
         'AI-Analysis',
-        'Notice',
+        // 'Notice',
       ],
       signup: false,
     }),

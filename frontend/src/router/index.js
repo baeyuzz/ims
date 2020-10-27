@@ -26,13 +26,13 @@ const router = new Router({
         {
           path: 'ai-analysis',
           name: 'AI-Analysis',
-          component: () => import('@/views/ai-analysis/Index.vue'),
+          component: () => import('@/views/ai-analysis/input.vue'),
 
         },
         {
-          path: 'notice',
-          name: 'Notice',
-          // component: () => import('@/views/'),
+          path: 'ai-output',
+          name: 'AiOuput',
+          component: () => import('@/views/ai-analysis/output.vue'),
           // meta: { src: require('@/assets/pro.jpg') },
         },
         {

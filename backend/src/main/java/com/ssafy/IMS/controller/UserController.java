@@ -1,9 +1,8 @@
 package com.ssafy.IMS.controller;
 
-import com.ssafy.IMS.exception.ApiException;
 import com.ssafy.IMS.model.User;
 import com.ssafy.IMS.payload.ApiResponse;
-import com.ssafy.IMS.payload.SignUpRequest;
+import com.ssafy.IMS.payload.UserInfoRequest;
 import com.ssafy.IMS.payload.UserIdentityAvailability;
 import com.ssafy.IMS.payload.UserProfile;
 import com.ssafy.IMS.repository.UserRepository;
@@ -19,11 +18,10 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
 
 @Api(value = "로그인, 회원가입, 유저에 관한 정보 처리")
 @RequestMapping("/api/user")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class UserController {
     @Autowired
@@ -49,8 +47,8 @@ public class UserController {
 
     @ApiOperation(value = "회원가입")
     @PostMapping("/signup")
-    public ResponseEntity<ApiResponse> registerUser(@Valid @RequestBody SignUpRequest signUpRequest) {
-        User result = userService.addUser(signUpRequest);
+    public ResponseEntity<ApiResponse> registerUser(@Valid @RequestBody UserInfoRequest userInfoRequest) {
+        User result = userService.addUser(userInfoRequest);
 
         URI location = ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/user/{userId}")
                 .buildAndExpand(result.getId()).toUri();
@@ -58,12 +56,19 @@ public class UserController {
         return ResponseEntity.created(location).body(new ApiResponse(Boolean.TRUE, "회원가입에 성공했습니다."));
     }
 
-//    @ApiOperation(value = "유저 정보 업데이트")
-//    @PutMapping("/{username}")
-//    public ResponseEntity<User> updateUser(@Valid @RequestBody User newUser,
-//                                           @PathVariable(value = "username") String username) {
-//        User updatedUSer = userService.updateUser(newUser, username);
-//
-//        return new ResponseEntity< >(updatedUSer, HttpStatus.CREATED);
-//    }
+    @ApiOperation(value = "유저 정보 업데이트")
+    @PutMapping("/update")
+    public ResponseEntity<User> updateUser(@Valid @RequestBody UserInfoRequest userInfoRequest) {
+        User updatedUSer = userService.updateUser(userInfoRequest);
+
+        return new ResponseEntity< >(updatedUSer, HttpStatus.CREATED);
+    }
+
+    @ApiOperation(value = "회원탈퇴")
+    @DeleteMapping("/{email}")
+    public ResponseEntity<ApiResponse> deleteUser(@RequestParam(value = "email") String email) {
+        ApiResponse apiResponse = userService.deleteUser(email);
+
+        return new ResponseEntity< >(apiResponse, HttpStatus.OK);
+    }
 }

@@ -2,7 +2,7 @@ package com.ssafy.IMS.service;
 
 import com.ssafy.IMS.model.User;
 import com.ssafy.IMS.payload.ApiResponse;
-import com.ssafy.IMS.payload.SignUpRequest;
+import com.ssafy.IMS.payload.UserInfoRequest;
 import com.ssafy.IMS.payload.UserIdentityAvailability;
 import com.ssafy.IMS.payload.UserProfile;
 import com.sun.security.auth.UserPrincipal;
@@ -13,9 +13,9 @@ public interface UserService {
 
     UserProfile getUserProfile(String name);
 
-    User addUser(SignUpRequest signUpRequest);
+    User addUser(UserInfoRequest userInfoRequest);
 
-    User updateUser(User newUser, String name, UserPrincipal currentUser);
+    User updateUser(UserInfoRequest userInfoRequest);
 
-    ApiResponse deleteUser(UserPrincipal currentUser);
+    ApiResponse deleteUser(String username);
 }

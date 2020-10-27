@@ -1,10 +1,10 @@
 package com.ssafy.IMS.controller;
 
+import com.ssafy.IMS.exception.ApiException;
+import com.ssafy.IMS.exception.BadRequestException;
+import com.ssafy.IMS.exception.ResourceNotFoundException;
 import com.ssafy.IMS.model.User;
-import com.ssafy.IMS.payload.ApiResponse;
-import com.ssafy.IMS.payload.UserInfoRequest;
-import com.ssafy.IMS.payload.UserIdentityAvailability;
-import com.ssafy.IMS.payload.UserProfile;
+import com.ssafy.IMS.payload.*;
 import com.ssafy.IMS.repository.UserRepository;
 import com.ssafy.IMS.service.UserService;
 import io.swagger.annotations.Api;
@@ -70,5 +70,15 @@ public class UserController {
         ApiResponse apiResponse = userService.deleteUser(email);
 
         return new ResponseEntity< >(apiResponse, HttpStatus.OK);
+    }
+
+    @PostMapping("/login")
+    public User login(@RequestBody LoginRequest loginRequest){
+        User curUser = userRepository.findByEmail(loginRequest.getEmail()).orElseThrow(
+                () -> new ResourceNotFoundException("User", "id", loginRequest.getEmail()));
+        if(!curUser.getPassword().equals(loginRequest.getPassword())){
+            throw new ApiException(HttpStatus.BAD_REQUEST, "비밀번호가 일치하지 않습니다");
+        }
+        return curUser;
     }
 }

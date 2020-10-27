@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@material-ui/icons": "^4.9.1",
+    "axios": "^0.21.0",
     "vue": "^2.6.11",
     "vue-material": "^1.0.0-beta-15",
     "vue-meta": "^2.3.3",

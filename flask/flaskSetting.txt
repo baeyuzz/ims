@@ -1,0 +1,13 @@
+python -m venv myvenv (Flask폴더에서 명령어 실행)
+source myvenv/Scripts/activate
+pip install flask
+python -m pip install --upgrade pip
+
+pip install JPype1-1.0.2-cp36-none-win_amd64.whl(36은 3.6의미)
+(python --version으로 3.6.8일시 36 나머지이면 37 38이런식으로하기
+)
+(
+    만약 AI폴더에 JPype에서 자신에 맞는 버전이 없으면
+    https://www.lfd.uci.edu/~gohlke/pythonlibs/#jpype
+    요기서 맞는거 AI에 넣고 실행!!
+)

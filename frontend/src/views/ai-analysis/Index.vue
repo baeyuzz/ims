@@ -35,7 +35,7 @@
 
 <template>
   <div>
-    <div class="cal">
+    <div class="input">
       <ai-input/>
     </div>
   </div>
@@ -50,7 +50,8 @@ export default {
 }
 </script>
 <style scoped>
-* {
-  margin-top: 30%;;
+.input{
+  width: 80%;
+  margin : auto;
 }
 </style>

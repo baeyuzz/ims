@@ -6,12 +6,12 @@
       class="primary--text"
       title="Oh!"
     />
-
+  <!-- 에러페이지 -->
     <base-subheading
       space="8"
       title="Looks like this page doesn't exist"
     />
-
+    
       <!-- :src="require('@/assets/logo.svg')" -->
     <base-img
       class="mx-auto mb-12"

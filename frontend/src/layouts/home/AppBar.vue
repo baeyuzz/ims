@@ -28,14 +28,22 @@
           >
             {{ name }}
           </v-tab>
+
+          <v-tab active-class="text--primary"
+            class="font-weight-bold"
+            @click.stop="signup = true"> Login
+          </v-tab>
         </v-tabs>
       </div>
 
+        <v-dialog v-model="signup" max-width="500" min-width="300">
+          <Login></Login>
+        </v-dialog>
       <v-app-bar-nav-icon
         class="hidden-md-and-up"
         @click="drawer = !drawer"
       />
-    </v-app-bar>
+      </v-app-bar>
 
     <home-drawer
       v-model="drawer"
@@ -45,11 +53,14 @@
 </template>
 
 <script>
+import Login from "./Login";
+import Signup from "./Signup";
   export default {
     name: 'HomeAppBar',
 
     components: {
       HomeDrawer: () => import('./Drawer'),
+      Login,
     },
 
     data: () => ({
@@ -59,6 +70,7 @@
         'AI-Analysis',
         'Notice',
       ],
+      signup: false,
     }),
   }
 </script>

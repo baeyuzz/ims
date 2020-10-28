@@ -5,6 +5,7 @@ import router from "./router";
 import vuetify from "./plugins/vuetify";
 import VueTextareaAutosize from "vue-textarea-autosize";
 import firebase from "firebase/app";
+import store from "./store.js";
 import "firebase/firestore";
 import store from './store'
 
@@ -28,6 +29,7 @@ export const db = firebase.firestore();
 
 new Vue({
   router,
+  store,
   vuetify,
   store,
   render: h => h(App),

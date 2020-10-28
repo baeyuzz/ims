@@ -55,9 +55,10 @@ export default {
         this.user.email,
         this.user.password,
         function(response) {
-          //   scope.$store.commit("setIsSigned", true);
-          //   scope.$store.commit("setUserId", response.data.id);
-          alert("로그인 완료");
+          scope.$store.commit("setName", response.data.name);
+          scope.$store.commit("setEmail", response.data.email);
+          scope.$store.commit("setIsLogin", true);
+          scope.$emit("close");
         },
         function(error) {
           console.error(error);

@@ -10,7 +10,7 @@
 export default {
   name: "AiAnalysis",
   components: {
-    AiOutput: () => import("@/components/AiOutput"),
+    AiOutput: () => import("@/components/ai/AiOutput"),
   },
 };
 </script>

@@ -1,36 +1,48 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import cookies from 'vue-cookies';
+import cookies from "vue-cookies";
+import VuexPersistence from "vuex-persist";
+
+const persistor = new VuexPersistence({
+  key: "root",
+  storage: window.localStorage
+});
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    email : '',
-    name : '',
-    token: cookies.get('token'),
+    id: 0,
+    email: "",
+    name: "",
+    isLogin: false,
+    token: cookies.get("token")
   },
-  actions: {
-
-  },
+  actions: {},
   mutations: {
     setName(state, name) {
       state.name = name;
     },
-    setEmail(state,id) {
-      state.id = id
+    setEmail(state, email) {
+      state.email = email;
+    },
+    setIsLogin(state, isLogin) {
+      state.isLogin = isLogin;
     },
     clearMember(state) {
-        state.id = '';
-        state.name = '';
+      state.email = "";
+      state.name = "";
     },
-    logout(state){
-      state.token = '';
+    logout(state) {
+      state.email = "";
+      state.name = "";
+      state.isLogin = false;
+      state.token = "";
     },
     setToken(state, token) {
       state.token = token;
-      cookies.set('token', token);
-    },
+      cookies.set("token", token);
+    }
   },
-
+  plugins: [persistor.plugin]
 });

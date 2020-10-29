@@ -1,11 +1,14 @@
+
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import vuetify from "./plugins/vuetify";
 import VueTextareaAutosize from "vue-textarea-autosize";
 import firebase from "firebase/app";
-import store from "./store.js";
+import store from "./store";
 import "firebase/firestore";
+// import store from './store'
+
 // import './plugins'
 
 Vue.use(VueTextareaAutosize);
@@ -28,5 +31,6 @@ new Vue({
   router,
   store,
   vuetify,
-  render: h => h(App)
-}).$mount("#app");
+  store,
+  render: h => h(App),
+}).$mount('#app')

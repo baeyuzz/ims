@@ -1,39 +1,22 @@
 <template>
-  <v-theme-provider dark>
-    <base-section
-      id="info-alt"
-      class="grey darken-1"
-    >
-      <v-responsive
-        class="mx-auto"
-        max-width="1400"
-      >
-        <v-container fluid>
-          <v-row>
-
-            <v-col
-              cols="12"
-              md="12"
-            >
-            SSAFY 3기 1반 1조 | 윤경준 김승기 박재우 배유진 배재원
-            </v-col>
-          </v-row>
-        </v-container>
-      </v-responsive>
-    </base-section>
-  </v-theme-provider>
+  <div class="footer">
+    2020 SSAFY 3기 자율프로젝트 1반 1조
+  </div>
 </template>
 
 <script>
-  export default {
-    name: 'Footer',
-
-    components: {
-    },
-  }
+export default {
+  name: "Footer",
+  components: {},
+};
 </script>
 
-<style lang="sass">
-  #info-alt a
-    text-decoration: none
+<style scoped>
+.footer {
+  padding: 10px 20px;
+  text-align: left;
+  width: 100%;
+  font-size: 15px;
+  background-color: #e7e7e7;
+}
 </style>

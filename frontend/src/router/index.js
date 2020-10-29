@@ -24,21 +24,27 @@ const router = new Router({
           component: () => import("@/views/home/Index.vue")
         },
         {
-          path: "ai-analysis",
-          name: "AI-Analysis",
-          component: () => import("@/views/ai-analysis/Index.vue")
+          path: 'ai-analysis',
+          name: 'AI-Analysis',
+          component: () => import('@/views/ai-analysis/input.vue'),
+
         },
         {
-          path: "notice",
-          name: "Notice",
+          path: 'ai-result',
+          name: 'AI-Result',
+          component: () => import('@/views/ai-analysis/output.vue'),
+          props: true
+        },
+        {
+          path: "mypage",
+          name: "Mypage",
           component: () => import("@/views/Mypage.vue")
-          // meta: { src: require('@/assets/pro.jpg') },
         },
         {
           path: "*",
           name: "FourOhFour",
           component: () => import("@/views/404/Index.vue")
-        }
+        },
       ]
     }
   ]

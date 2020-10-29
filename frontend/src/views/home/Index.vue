@@ -1,8 +1,11 @@
 <template>
   <div>
     <div class="cal">
-      <calendar/>
+      <intro />
     </div>
+    <func/>
+    <about-us/>
+
   </div>
 </template>
 
@@ -10,14 +13,17 @@
 export default {
   name: "Home",
   components: {
-    Calendar: () => import('@/components/Calendar'),
+    Intro: () => import("@/components/intro/Intro"),
+    AboutUs : () => import("@/components/intro/AboutUs"),
+    Func : () => import("@/components/intro/Func")
   },
-}
+
+};
 </script>
 <style scoped>
-.cal {
-  margin: auto;
-  text-align: center;
-  width: 70%;
+.cards {
+  display: flex;
+  text-align: left;
+  justify-content: center;
 }
 </style>

@@ -16,7 +16,10 @@ export default new Vuex.Store({
     email: "",
     name: "",
     isLogin: false,
-    token: cookies.get("token")
+    result: [],
+    competency: [
+      '글로벌', '도전정신', '성실성', '의사소통', '성취지향', '책임감', '창의성', '정직함'
+    ]
   },
   actions: {},
   mutations: {
@@ -29,9 +32,18 @@ export default new Vuex.Store({
     setIsLogin(state, isLogin) {
       state.isLogin = isLogin;
     },
+    setContent(state, content) {
+      state.content = content
+    },
+    setResult(state, result) {
+      state.result = result
+    },
     clearMember(state) {
       state.email = "";
       state.name = "";
+    },
+    clearContent(state) {
+      state.content = '';
     },
     logout(state) {
       state.email = "";

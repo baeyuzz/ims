@@ -30,9 +30,10 @@ const router = new Router({
 
         },
         {
-          path: 'ai-output',
-          name: 'AiOuput',
+          path: 'ai-result',
+          name: 'AI-Result',
           component: () => import('@/views/ai-analysis/output.vue'),
+          props: true
         },
         {
           path: "mypage",
@@ -43,7 +44,7 @@ const router = new Router({
           path: "*",
           name: "FourOhFour",
           component: () => import("@/views/404/Index.vue")
-        }
+        },
       ]
     }
   ]

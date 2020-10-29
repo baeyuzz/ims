@@ -5,9 +5,9 @@ import router from "./router";
 import vuetify from "./plugins/vuetify";
 import VueTextareaAutosize from "vue-textarea-autosize";
 import firebase from "firebase/app";
-import store from "./store.js";
+import store from "./store";
 import "firebase/firestore";
-import store from './store'
+// import store from './store'
 
 // import './plugins'
 

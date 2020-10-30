@@ -28,3 +28,8 @@
       padding-top: 48px !important
       padding-bottom: 48px !important
 </style>
+<style>
+* {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+</style>

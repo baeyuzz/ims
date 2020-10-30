@@ -2,7 +2,7 @@ import axios from "axios";
 
 function createInstance() {
   const instance = axios.create({
-    baseURL: "http://localhost:8080/",
+    baseURL: process.env.VUE_APP_API_HOST,
     headers: {
       "Content-Type": "application/json"
     }
@@ -11,7 +11,7 @@ function createInstance() {
 }
 function createInstance2() {
   const instance = axios.create({
-    baseURL: "http://localhost:5000/",
+	  baseURL: "http://localhost:5000/",
     headers: {
       "Content-Type": "application/json"
     }

@@ -14,8 +14,8 @@ def test(text):
 
     content.append(text)
 
-    stopwords = pd.read_csv('./csv/stopwords.csv')
-
+    #stopwords = pd.read_csv('./csv/stopwords.csv')
+    stopwords = pd.read_csv('/home/ubuntu/s03p31a101/flask/csv/stopwords.csv')
     def tokenizer(raw, pos=["Noun", "Verb"]):
         return [
             word for word, tag in okt.pos(
@@ -38,8 +38,8 @@ def test(text):
         sublinear_tf=True
     )
 
-    clf_from_joblib = joblib.load('./model/svcModel.pkl')
-
+    #clf_from_joblib = joblib.load('./model/svcModel.pkl')
+    clf_from_joblib = joblib.load('/home/ubuntu/s03p31a101/flask/model/svcModel.pkl')
     print()
     output = clf_from_joblib.decision_function(content)
 

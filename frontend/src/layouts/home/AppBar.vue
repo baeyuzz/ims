@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app-bar id="home-app-bar" app color="white" elevation="1" height="80">
-      <div>HAPPY JOB</div>
+      <div>IMS</div>
       <v-spacer />
 
       <div>
@@ -31,6 +31,7 @@
             active-class="text--primary"
             class="font-weight-bold"
             v-if="$store.state.isLogin"
+            @click="go2mypage"
           >
             My Page
           </v-tab>
@@ -68,7 +69,7 @@ export default {
 
   data: () => ({
     drawer: null,
-    items: ["Home", "AI-Analysis", "Notice"],
+    items: ["Home", "AI-Analysis"],
     login: false
   }),
 
@@ -80,6 +81,9 @@ export default {
       this.$store.commit("setName", "");
       this.$store.commit("setEmail", "");
       this.$store.commit("setIsLogin", false);
+    },
+    go2mypage(){
+      this.$router.push('/mypage')
     }
   }
 };

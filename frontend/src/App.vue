@@ -9,7 +9,7 @@
     name: 'App',
     metaInfo: {
       title: 'App',
-      titleTemplate: '%s | HAPPY JOB',
+      titleTemplate: '%s | IMS',
       htmlAttrs: { lang: 'en' },
       meta: [
         { charset: 'utf-8' },

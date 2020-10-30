@@ -73,7 +73,7 @@
 1. 팀이름 : IMS
 2. 프로젝트 이름 : IMS (Introduce Myself)
 3. 주제 : 채용정보 조회와 인공지능을 이용한 자기소개서 역량 분석
-4. 배포주소 : http://k3a101.p.ssafy.io
+4. 배포주소 : http://k3a101.p.ssafy.io 
 
 
 <br>

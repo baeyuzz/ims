@@ -1,7 +1,14 @@
 <template>
   <div>
     <v-app-bar id="home-app-bar" app color="white" elevation="1" height="80">
-      <div>HAPPY JOB</div>
+      <div>
+        <img
+          src="@/assets/logo.png"
+          height="60"
+          style="margin: 5px 0 0 10px; cursor:pointer"
+          @click="goHome"
+        />
+      </div>
       <v-spacer />
 
       <div>
@@ -31,6 +38,7 @@
             active-class="text--primary"
             class="font-weight-bold"
             v-if="$store.state.isLogin"
+            @click="go2mypage"
           >
             My Page
           </v-tab>
@@ -63,13 +71,13 @@ export default {
 
   components: {
     HomeDrawer: () => import("./Drawer"),
-    Login
+    Login,
   },
 
   data: () => ({
     drawer: null,
-    items: ["Home", "AI-Analysis", "Notice"],
-    login: false
+    items: ["Home", "AI-Analysis"],
+    login: false,
   }),
 
   methods: {
@@ -80,8 +88,16 @@ export default {
       this.$store.commit("setName", "");
       this.$store.commit("setEmail", "");
       this.$store.commit("setIsLogin", false);
-    }
-  }
+    },
+    go2mypage() {
+      this.$router.push("/mypage");
+    },
+    goHome() {
+      // this.$router.go(this.$router.currentRoute); 이건 새로고침
+      const path = "/";
+      if (this.$route.path !== path) this.$router.push(path);
+    },
+  },
 };
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="input">
-    <div class="intro">
+    <!-- <div class="intro">
       <h1>AI-Analysis</h1>
       <hr
         style="
@@ -12,8 +12,8 @@
         "
       />
       <div id="h2">자기소개서 분석</div>
-    </div>
-
+    </div> -->
+    <img src="@/assets/ai-intro.png" width="100%" />
     <div class="text">
       <ai-input />
     </div>

@@ -1,5 +1,5 @@
 <template>
-  <v-parallax src="@/assets/parallax.png" height="550">
+  <v-parallax src="@/assets/parallax.png">
     <div style="text-align: center">
       <h1>About Us</h1>
       <br />

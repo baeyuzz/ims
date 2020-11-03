@@ -46,7 +46,7 @@ public class EssayController {
         return new ResponseEntity< >(result, HttpStatus.CREATED);
     }
 
-    @ApiOperation(value = "회원탈퇴")
+    @ApiOperation(value = "자소서 삭제")
     @DeleteMapping("/{essayId}")
     public ResponseEntity<ApiResponse> deleteUser(@PathVariable(value = "essayId") int essayId) {
         ApiResponse apiResponse = essayService.deleteEssay(essayId);

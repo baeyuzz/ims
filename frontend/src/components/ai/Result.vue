@@ -5,8 +5,8 @@
       <div style="text-align: center">
         <h2>가장 잘 드러난 역량</h2>
         <h3>
-          {{ labels[maxlabel] }}
-          {{ max.toString().substring(0, 5) }} %
+          {{ unordered[0][0] }}
+          {{ unordered[0][1].toString().substring(0, 5) }} %
         </h3>
       </div>
       <br />
@@ -14,7 +14,7 @@
         <div class="cards" v-for="(res, i) in unordered" :key="i">
           <div>{{ i + 1 }}. {{ res[0] }}</div>
           <div style="text-align: left">
-            {{ res[1].toString().substring(0, 5) }}
+            {{ res[1].toString().substring(0, 5) }} %
           </div>
         </div>
       </div>
@@ -25,8 +25,8 @@
       <div style="text-align: center">
         <h2>나와 어울리는 회사 추천</h2>
         <h3>
-          {{store.state.rank1}}
-          {{store.state.rank2}}
+          <!-- {{ store.state.rank1 }}
+          {{ store.state.rank2 }} -->
         </h3>
       </div>
     </v-sheet>
@@ -71,9 +71,7 @@ export default {
       return second[1] - first[1];
     });
 
-    recommendCompany(unordered[0],unordered[1]);
-
-
+    // recommendCompany(unordered[0], unordered[1]);
   },
 };
 </script>

@@ -43,7 +43,6 @@ function recommendCompany(rank1, rank2) {
             console.log(res);
             store.commit("setRank1", res.data.rank1);
             store.commit("setRank2", res.data.rank2);
-
         }
         )
         .catch((err) => (
@@ -52,4 +51,19 @@ function recommendCompany(rank1, rank2) {
         );
 }
 
-export { saveEssay, recommendCompany };
+function deleteEssay(id, success, fail) {
+    instance
+        .delete("/api/essay/" + id)
+        .then(success)
+        .catch(fail);
+}
+
+function getEssayByUser(userId, success, fail) {
+    instance
+        .get("/api/essay/getEssayByUser/" + userId)
+        .then(success)
+        .catch(fail);
+}
+
+
+export { saveEssay, getEssayByUser, deleteEssay, recommendCompany };

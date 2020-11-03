@@ -19,13 +19,22 @@ export default new Vuex.Store({
     company2: "",
     company3: "",
     isLogin: false,
+    isMyPage: false,
     result: [],
     competency: [
-      '글로벌', '도전정신', '성실성', '의사소통능력', '성취지향성', '책임감', '창의성', '정직함'
+      "글로벌",
+      "도전정신",
+      "성실성",
+      "의사소통능력",
+      "성취지향성",
+      "책임감",
+      "창의성",
+      "정직함"
     ],
     content: "",
     rank1: "",
     rank2: "",
+    content: ""
   },
   actions: {},
   mutations: {

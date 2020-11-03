@@ -20,9 +20,21 @@
       </div>
       <br />
     </v-sheet>
+
+    <v-sheet>
+      <div style="text-align: center">
+        <h2>나와 어울리는 회사 추천</h2>
+        <h3>
+          {{store.state.rank1}}
+          {{store.state.rank2}}
+        </h3>
+      </div>
+    </v-sheet>
   </div>
 </template>
 <script>
+import { recommendCompany } from "../../api/essay.js";
+
 export default {
   name: "Result",
 
@@ -58,6 +70,10 @@ export default {
     this.unordered.sort(function (first, second) {
       return second[1] - first[1];
     });
+
+    recommendCompany(unordered[0],unordered[1]);
+
+
   },
 };
 </script>

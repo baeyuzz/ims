@@ -24,6 +24,8 @@ export default new Vuex.Store({
       '글로벌', '도전정신', '성실성', '의사소통능력', '성취지향성', '책임감', '창의성', '정직함'
     ],
     content: "",
+    rank1: "",
+    rank2: "",
   },
   actions: {},
   mutations: {
@@ -53,6 +55,12 @@ export default new Vuex.Store({
     },
     setCompany3(state, company) {
       state.company3 = company;
+    },
+    setRank1(state, rank1) {
+      state.rank1 = rank1;
+    },
+    setRank2(state, rank2) {
+      state.rank2 = rank2;
     },
     clearMember(state) {
       state.email = "";

@@ -54,7 +54,7 @@ public class CompanyController {
     }
 
     @ApiOperation(value = "회사정보 삭제")
-    @DeleteMapping("/{comapanyId}")
+    @DeleteMapping("/{companyId}")
     public ResponseEntity<ApiResponse> deleteUser(@PathVariable(value = "companyId") int companyId) {
         ApiResponse apiResponse = companyService.deleteCompany(companyId);
         return new ResponseEntity< >(apiResponse, HttpStatus.OK);

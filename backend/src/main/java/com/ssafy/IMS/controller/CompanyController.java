@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
+import java.util.List;
 
 @Api(value = "회사에 관한 정보 처리")
 @RequestMapping("/api/company")
@@ -35,6 +36,13 @@ public class CompanyController {
     public ResponseEntity<Company> getCompany(@RequestParam(value = "name") String name) {
         Company getCompany = companyService.getCompany(name);
         return new ResponseEntity< >(getCompany, HttpStatus.OK);
+    }
+
+    @ApiOperation(value = "랭크 관련된 회사")
+    @GetMapping("/{rank1}/{rank2}")
+    public ResponseEntity<List<Company>> getCompanyByRank(@RequestParam(value = "rank1") String rank1, @RequestParam(value = "rank2") String rank2) {
+        List<Company> companies = companyService.getCompanyByRank(rank1,rank2);
+        return new ResponseEntity< >(companies, HttpStatus.OK);
     }
 
     @ApiOperation(value = "회사정보 등록")

@@ -1,19 +1,19 @@
 package com.ssafy.IMS.payload;
 
-import com.ssafy.IMS.model.User;
 import lombok.*;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
-public class EssayRequest {
+@AllArgsConstructor
+@NoArgsConstructor
+public class EssayUpdateRequest {
 
-    @NotBlank
-    private String email;
+    @NotNull
+    private int id;
 
     @NotBlank
     private String content;

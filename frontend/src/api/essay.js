@@ -28,4 +28,11 @@ function getEssayByUser(userId, success, fail) {
     .catch(fail);
 }
 
-export { saveEssay, getEssayByUser };
+function deleteEssay(id, success, fail) {
+  instance
+    .delete("/api/essay/" + id)
+    .then(success)
+    .catch(fail);
+}
+
+export { saveEssay, getEssayByUser, deleteEssay };

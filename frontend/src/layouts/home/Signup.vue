@@ -93,8 +93,6 @@ export default {
     this.user.company3 = this.$store.state.company3;
     if (this.user.email == "" || this.user.email == null) this.isSignUp = true;
     else this.isSignUp = false;
-
-    alert(this.user.email);
   },
   methods: {
     register() {

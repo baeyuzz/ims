@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -61,6 +62,13 @@ public class CompanyServiceImpl implements CompanyService {
 
         return companyRepository.findByName(companyRequest.getName())
                 .orElseThrow(() -> new ResourceNotFoundException("Company", "name", companyRequest.getName()));
+    }
+
+    @Override
+    public List<Company> getCompanyByRank(String rank1, String rank2) {
+        List<Company> companies = companyRepository.findByRank1AndRank2(rank1, rank2)
+                .orElseThrow(() -> new ResourceNotFoundException("Company", "name", "not found"));
+        return companies;
     }
 
     @Override

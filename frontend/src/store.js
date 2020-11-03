@@ -15,6 +15,7 @@ export default new Vuex.Store({
     id: 0,
     email: "",
     name: "",
+    company: [],
     company1: "",
     company2: "",
     company3: "",
@@ -31,7 +32,7 @@ export default new Vuex.Store({
       "창의성",
       "정직함"
     ],
-    content: ""
+    content: "",
   },
   actions: {},
   mutations: {
@@ -52,6 +53,9 @@ export default new Vuex.Store({
     },
     setResult(state, result) {
       state.result = result;
+    },
+    setCompany(state, company) {
+      state.company = company;
     },
     setCompany1(state, company) {
       state.company1 = company;

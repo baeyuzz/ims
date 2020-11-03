@@ -39,7 +39,7 @@ public class CompanyController {
     }
 
     @ApiOperation(value = "랭크 관련된 회사")
-    @GetMapping("/{rank1}/{rank2}")
+    @GetMapping("/select")
     public ResponseEntity<List<Company>> getCompanyByRank(@RequestParam(value = "rank1") String rank1, @RequestParam(value = "rank2") String rank2) {
         List<Company> companies = companyService.getCompanyByRank(rank1,rank2);
         return new ResponseEntity< >(companies, HttpStatus.OK);

@@ -30,6 +30,12 @@ export default {
   }),
   methods: {
     submit() {
+
+      if(this.content.length < 200){
+        alert("200자 이상 입력해주세요")
+        return;
+      }
+
       this.$store.commit("setContent", this.content);
 
       const instance = createInstance2();

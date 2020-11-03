@@ -21,6 +21,13 @@
         >
           회원정보수정
         </v-btn>
+        <v-list>
+          <div v-for="essay in essays" :key="essay.id">
+            <v-list-item>
+              {{ essay.content }}
+            </v-list-item>
+          </div>
+        </v-list>
         <v-dialog v-model="dialog" max-width="500">
           <Signup :signup="signup" @close="close"></Signup>
         </v-dialog>
@@ -32,16 +39,30 @@
 <script>
 import Signup from "@/layouts/home/Signup";
 import { signout } from "../api/user.js";
+import { getEssayByUser } from "../api/essay.js";
 export default {
   name: "Mypage",
   data() {
     return {
+      essays: [],
       dialog: false
     };
   },
   components: {
     Calendar: () => import("@/components/Calendar"),
     Signup
+  },
+  mounted() {
+    const scope = this;
+    getEssayByUser(
+      this.$store.state.id,
+      function(response) {
+        scope.essays = response.data;
+      },
+      function(error) {
+        console.log(error);
+      }
+    );
   },
   methods: {
     close() {

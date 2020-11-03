@@ -55,7 +55,7 @@ export default {
         this.user.email,
         this.user.password,
         function(response) {
-          scope.$store.commit("setId", response.date.id);
+          scope.$store.commit("setId", response.data.id);
           scope.$store.commit("setName", response.data.name);
           scope.$store.commit("setEmail", response.data.email);
           scope.$store.commit("setIsLogin", true);

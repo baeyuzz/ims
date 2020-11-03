@@ -21,23 +21,30 @@
       <result />
     </div>
     <div class="btns">
-      <v-btn class="mb-5" width="200" color="primary" @click="go2analysis"
+      <v-btn class="mx-1 mb-8" width="150" color="primary" @click="go2analysis"
         >다시 분석하기</v-btn
       >
-      <br />
-      <v-btn class="mx-1 mb-8" color="warning"
-        ><v-icon>mdi-download</v-icon>저장</v-btn
+
+      <v-btn
+        v-if="$store.state.isLogin"
+        width="150"
+        class="mx-1 mb-8"
+        color="warning"
+        @click="save"
+        ><v-icon>mdi-download</v-icon> 저장하기</v-btn
       >
-      <v-btn class="mx-1 mb-8" color="teal" dark>
+      <!-- <v-btn v-if="isLogin"
+      class="mx-1 mb-8" color="teal" dark>
         <v-icon>mdi-share</v-icon>
         공유
-      </v-btn>
+      </v-btn> -->
     </div>
   </div>
 </template>
 
 <script>
 import Chart from "chart.js";
+import { saveEssay } from "../../api/essay.js";
 
 export default {
   name: "AI-Result",
@@ -49,6 +56,9 @@ export default {
   methods: {
     go2analysis() {
       this.$router.push("/ai-analysis");
+    },
+    save() {
+      saveEssay();
     },
   },
 };

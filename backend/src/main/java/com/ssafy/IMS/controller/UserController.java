@@ -38,7 +38,7 @@ public class UserController {
     }
 
     @ApiOperation(value = "유저 정보 보기")
-    @GetMapping("/{username}/profile")
+    @GetMapping("/profile/{username}")
     public ResponseEntity<UserProfile> getUserProfile(@PathVariable(value = "username") String username) {
         UserProfile userProfile = userService.getUserProfile(username);
 

@@ -15,10 +15,20 @@ export default new Vuex.Store({
     id: 0,
     email: "",
     name: "",
+    company1: "",
+    company2: "",
+    company3: "",
     isLogin: false,
     result: [],
     competency: [
-      '글로벌', '도전정신', '성실성', '의사소통능력', '성취지향성', '책임감', '창의성', '정직함'
+      "글로벌",
+      "도전정신",
+      "성실성",
+      "의사소통능력",
+      "성취지향성",
+      "책임감",
+      "창의성",
+      "정직함"
     ]
   },
   actions: {},
@@ -33,17 +43,26 @@ export default new Vuex.Store({
       state.isLogin = isLogin;
     },
     setContent(state, content) {
-      state.content = content
+      state.content = content;
     },
     setResult(state, result) {
-      state.result = result
+      state.result = result;
+    },
+    setCompany1(state, company) {
+      state.company1 = company;
+    },
+    setCompany2(state, company) {
+      state.company2 = company;
+    },
+    setCompany3(state, company) {
+      state.company3 = company;
     },
     clearMember(state) {
       state.email = "";
       state.name = "";
     },
     clearContent(state) {
-      state.content = '';
+      state.content = "";
     },
     logout(state) {
       state.email = "";

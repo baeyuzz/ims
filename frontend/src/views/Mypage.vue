@@ -21,19 +21,32 @@
         >
           회원정보수정
         </v-btn>
+        <v-dialog v-model="dialog" max-width="500">
+          <Signup :signup="signup" @close="close"></Signup>
+        </v-dialog>
       </div>
     </v-main>
   </v-app>
 </template>
 
 <script>
+import Signup from "@/layouts/home/Signup";
 import { signout } from "../api/user.js";
 export default {
   name: "Mypage",
+  data() {
+    return {
+      dialog: false
+    };
+  },
   components: {
-    Calendar: () => import("@/components/Calendar")
+    Calendar: () => import("@/components/Calendar"),
+    Signup
   },
   methods: {
+    close() {
+      this.dialog = false;
+    },
     signout() {
       var scope = this;
       var check = confirm("회원탈퇴 하시겠습니까?");
@@ -45,6 +58,9 @@ export default {
           scope.$store.commit("setName", "");
           scope.$store.commit("setEmail", "");
           scope.$store.commit("setIsLogin", false);
+          scope.$store.commit("setCompany1", "");
+          scope.$store.commit("setCompany2", "");
+          scope.$store.commit("setCompany3", "");
           scope.$router.push("/");
         },
         function(error) {

@@ -18,16 +18,44 @@
       </div>
       <br />
     </v-container>
+
+
+    <div id="app">
+      <v-app id="inspire">
+        <div class="text-center">             
+          <v-overlay :value="overlay">
+            <v-progress-circular
+              :size="70"
+              color="primary"
+              indeterminate
+            ></v-progress-circular>
+          </v-overlay>
+        </div>
+      </v-app>
+    </div>
+
+
   </div>
+  
 </template>
 <script>
 import { createInstance2 } from "@/api/index.js";
 export default {
+  
   name: "AiInput",
-
   data: () => ({
     content: "",
+    overlay: false,
   }),
+
+  watch: {
+    overlay (val) {
+      val && setTimeout(() => {
+        this.overlay = false
+      }, 3000)
+    },
+  },
+
   methods: {
     submit() {
 
@@ -36,12 +64,16 @@ export default {
         return;
       }
 
+      this.overlay = true;
+
+
       this.$store.commit("setContent", this.content);
 
       const instance = createInstance2();
       instance
         .post("/analysis", { text: this.content })
         .then((res) => {
+          this.overlay = false;
           if (res.data.result1 != null) {
             let list = [];
             list.push(res.data.result1);
@@ -56,11 +88,12 @@ export default {
 
             this.$router.push('/ai-result')
           }
-          else (
+          else (            
             alert('분석 실패')
           )
         })
         .catch((err) => {
+          this.overlay = false;
           console.log(err);
         });
     },

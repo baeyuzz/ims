@@ -15,13 +15,22 @@ export default new Vuex.Store({
     id: 0,
     email: "",
     name: "",
+    company: [],
     company1: "",
     company2: "",
     company3: "",
     isLogin: false,
+    isMyPage: false,
     result: [],
     competency: [
-      '글로벌', '도전정신', '성실성', '의사소통능력', '성취지향성', '책임감', '창의성', '정직함'
+      "글로벌",
+      "도전정신",
+      "성실성",
+      "의사소통능력",
+      "성취지향성",
+      "책임감",
+      "창의성",
+      "정직함"
     ],
     content: "",
   },
@@ -44,6 +53,9 @@ export default new Vuex.Store({
     },
     setResult(state, result) {
       state.result = result;
+    },
+    setCompany(state, company) {
+      state.company = company;
     },
     setCompany1(state, company) {
       state.company1 = company;

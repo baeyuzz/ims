@@ -40,4 +40,9 @@ public class Company {
     @Column(name = "result8")
     private String result8;
 
+    @Column(name = "rank1")
+    private String rank1;
+    @Column(name = "rank2")
+    private String rank2;
+
 }

@@ -53,7 +53,7 @@ public class CompanyController {
         return new ResponseEntity< >(company, HttpStatus.CREATED);
     }
 
-    @ApiOperation(value = "자소서 삭제")
+    @ApiOperation(value = "회사정보 삭제")
     @DeleteMapping("/{comapanyId}")
     public ResponseEntity<ApiResponse> deleteUser(@PathVariable(value = "companyId") int companyId) {
         ApiResponse apiResponse = companyService.deleteCompany(companyId);

@@ -85,12 +85,14 @@ export default {
       this.login = false;
     },
     logout() {
+      this.$store.commit("setId", 0);
       this.$store.commit("setName", "");
       this.$store.commit("setEmail", "");
       this.$store.commit("setIsLogin", false);
       this.$store.commit("setCompany1", "");
       this.$store.commit("setCompany2", "");
       this.$store.commit("setCompany3", "");
+      this.$router.push("/");
     },
     go2mypage() {
       this.$router.push("/mypage");

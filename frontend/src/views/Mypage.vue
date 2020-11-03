@@ -55,6 +55,7 @@ export default {
         this.$store.state.email,
         function(response) {
           alert("회원탈퇴 되었습니다");
+          scope.$store.commit("setId", 0);
           scope.$store.commit("setName", "");
           scope.$store.commit("setEmail", "");
           scope.$store.commit("setIsLogin", false);

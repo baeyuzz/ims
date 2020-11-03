@@ -1,33 +1,37 @@
 <template>
   <div>
-    <v-sheet>
-      <br />
-      <div style="text-align: center">
-        <h2>가장 잘 드러난 역량</h2>
-        <h3>
-          {{ unordered[0][0] }}
-          {{ unordered[0][1].toString().substring(0, 5) }} %
-        </h3>
-      </div>
-      <br />
-      <div class="resultCard">
-        <div class="cards" v-for="(res, i) in unordered" :key="i">
-          <div>{{ i + 1 }}. {{ res[0] }}</div>
-          <div style="text-align: left">
-            {{ res[1].toString().substring(0, 5) }} %
+    <v-sheet style="display: flex; justify-content: center">
+      <div style="width: 30%">
+        <div style="text-align: center">
+          <h2>가장 잘 드러난 역량</h2>
+          <h3>
+            {{ unordered[0][0] }}
+            {{ unordered[0][1].toString().substring(0, 5) }} %
+          </h3>
+        </div>
+        <br />
+        <div class="resultCard">
+          <div class="cards" v-for="(res, i) in unordered" :key="i">
+            <div>{{ i + 1 }}. {{ res[0] }}</div>
+            <div style="text-align: left">
+              {{ res[1].toString().substring(0, 5) }} %
+            </div>
           </div>
         </div>
       </div>
-      <br />
-    </v-sheet>
-
-    <v-sheet>
-      <div style="text-align: center">
-        <h2>나와 어울리는 회사 추천</h2>
+      <div style="text-align: center; width: 30%">
+        <h2>나와 어울리는 회사</h2>
+        <br />
         <h3>
-          <!-- {{ store.state.rank1 }}
-          {{ store.state.rank2 }} -->
+          {{ unordered[0][0] }}
+          {{ unordered[1][0] }}
         </h3>
+        <br />
+        <div v-for="(c, index) in company" :key="index">
+          <div v-if="index < 5">
+            {{ c.name }}
+          </div>
+        </div>
       </div>
     </v-sheet>
   </div>
@@ -53,6 +57,7 @@ export default {
     max: 0,
     maxlabel: "",
     unordered: [],
+    company: [],
   }),
   methods: {},
   created() {
@@ -70,8 +75,8 @@ export default {
     this.unordered.sort(function (first, second) {
       return second[1] - first[1];
     });
-
-    // recommendCompany(unordered[0], unordered[1]);
+    recommendCompany(this.unordered[0][0], this.unordered[1][0]);
+    this.company = this.$store.state.company;
   },
 };
 </script>

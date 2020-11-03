@@ -15,6 +15,7 @@ export default new Vuex.Store({
     id: 0,
     email: "",
     name: "",
+    company: [],
     company1: "",
     company2: "",
     company3: "",
@@ -32,9 +33,6 @@ export default new Vuex.Store({
       "정직함"
     ],
     content: "",
-    rank1: "",
-    rank2: "",
-    content: ""
   },
   actions: {},
   mutations: {
@@ -56,6 +54,9 @@ export default new Vuex.Store({
     setResult(state, result) {
       state.result = result;
     },
+    setCompany(state, company) {
+      state.company = company;
+    },
     setCompany1(state, company) {
       state.company1 = company;
     },
@@ -64,12 +65,6 @@ export default new Vuex.Store({
     },
     setCompany3(state, company) {
       state.company3 = company;
-    },
-    setRank1(state, rank1) {
-      state.rank1 = rank1;
-    },
-    setRank2(state, rank2) {
-      state.rank2 = rank2;
     },
     clearMember(state) {
       state.email = "";

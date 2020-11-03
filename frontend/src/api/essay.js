@@ -31,18 +31,10 @@ function saveEssay() {
 
 function recommendCompany(rank1, rank2) {
 
-    const rank =
-    {
-        "rank1": rank1,
-        "rank2": rank2
-    }
-
     instance
-        .post("/api/essay/company/", rank)
+        .get(`/api/company/select?rank1=${rank1}&rank2=${rank2}`)
         .then((res) => {
-            console.log(res);
-            store.commit("setRank1", res.data.rank1);
-            store.commit("setRank2", res.data.rank2);
+            store.commit("setCompany", res.data);
         }
         )
         .catch((err) => (

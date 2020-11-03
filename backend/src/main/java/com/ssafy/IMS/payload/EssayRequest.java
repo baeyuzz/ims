@@ -13,7 +13,7 @@ import javax.validation.constraints.NotBlank;
 public class EssayRequest {
 
     @NotBlank
-    User user;
+    String email;
 
     @NotBlank
     String content;

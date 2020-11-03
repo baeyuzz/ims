@@ -6,8 +6,10 @@ import com.ssafy.IMS.model.User;
 import com.ssafy.IMS.payload.ApiResponse;
 import com.ssafy.IMS.payload.EssayRequest;
 import com.ssafy.IMS.repository.EssayRepository;
+import com.ssafy.IMS.repository.UserRepository;
 import com.ssafy.IMS.service.EssayService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -16,6 +18,8 @@ import java.util.Optional;
 public class EssayServiceImpl implements EssayService {
     @Autowired
     private EssayRepository essayRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
     public Essay getEssay(int id) {
@@ -28,7 +32,9 @@ public class EssayServiceImpl implements EssayService {
     public Essay addEssay(EssayRequest essayRequest) {
         Essay newEssay = new Essay();
         newEssay.setContent(essayRequest.getContent());
-        newEssay.setUser(essayRequest.getUser());
+        newEssay.setUser(userRepository.findByEmail(essayRequest.getEmail())
+                .orElseThrow(()
+                        -> new UsernameNotFoundException(String.format("유저를 찾지 못헀습니다"))));
         newEssay.setResult1(essayRequest.getResult1());
         newEssay.setResult2(essayRequest.getResult2());
         newEssay.setResult3(essayRequest.getResult3());
@@ -45,7 +51,9 @@ public class EssayServiceImpl implements EssayService {
         Optional<Essay> oldEssay = essayRepository.findById(id);
         oldEssay.ifPresent(newEssay->{
             newEssay.setContent(essayRequest.getContent());
-            newEssay.setUser(essayRequest.getUser());
+            newEssay.setUser(userRepository.findByEmail(essayRequest.getEmail())
+                    .orElseThrow(()
+                            -> new UsernameNotFoundException(String.format("유저를 찾지 못헀습니다"))));
             newEssay.setResult1(essayRequest.getResult1());
             newEssay.setResult2(essayRequest.getResult2());
             newEssay.setResult3(essayRequest.getResult3());

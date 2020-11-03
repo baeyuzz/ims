@@ -47,6 +47,16 @@ function login(email, password, success, fail) {
     .catch(fail);
 }
 
+function signout(email, success, fail) {
+  const body = {
+    email: email
+  };
+  instance
+    .delete("api/user/" + email, JSON.stringify(body))
+    .then(success)
+    .catch(fail);
+}
+
 function update(user, success, fail) {
   instance
     .put("/api/users", JSON.stringify(user))
@@ -64,4 +74,4 @@ function save(data, id, success, fail, final) {
     .finally(final);
 }
 
-export { findById, signup, login, update, save };
+export { findById, signup, login, update, save, signout };

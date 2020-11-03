@@ -11,7 +11,7 @@ function createInstance() {
 }
 function createInstance2() {
   const instance = axios.create({
-	  baseURL: "http://localhost:5000/",
+	  baseURL: process.env.VUE_APP_API_PYTHON, //http://localhost:5000
     headers: {
       "Content-Type": "application/json"
     }

@@ -94,7 +94,6 @@ export default {
     if (this.user.email == "" || this.user.email == null) this.isSignUp = true;
     else this.isSignUp = false;
 
-    alert(this.user.email);
   },
   methods: {
     register() {

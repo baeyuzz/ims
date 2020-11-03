@@ -92,6 +92,7 @@ export default {
       this.$store.commit("setCompany1", "");
       this.$store.commit("setCompany2", "");
       this.$store.commit("setCompany3", "");
+      this.$router.push("/");
     },
     go2mypage() {
       this.$router.push("/mypage");

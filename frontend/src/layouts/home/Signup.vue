@@ -7,8 +7,29 @@
       <v-card-title v-if="user.email != null" class="headline"
         >회원정보수정</v-card-title
       >
-      <v-text-field label="이메일" v-model="user.email"></v-text-field>
-      <v-text-field label="이름" v-model="user.name"></v-text-field>
+      <v-text-field
+        v-if="user.email == null"
+        label="이메일"
+        v-model="user.email"
+      ></v-text-field>
+      <v-text-field
+        v-if="user.email == null"
+        label="이름"
+        v-model="user.name"
+      ></v-text-field>
+      <v-text-field
+        v-if="user.email != null"
+        label="이메일"
+        v-model="user.email"
+        readonly
+      ></v-text-field>
+      <v-text-field
+        v-if="user.email != null"
+        label="이름"
+        v-model="user.name"
+        readonly
+      ></v-text-field>
+
       <v-text-field
         label="비밀번호"
         v-model="user.password"

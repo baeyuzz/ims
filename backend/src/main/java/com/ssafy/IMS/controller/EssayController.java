@@ -14,6 +14,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
+import java.util.List;
 
 @Api(value = "자소서에 관한 정보 처리")
 @RequestMapping("/api/essay")
@@ -24,10 +25,17 @@ public class EssayController {
     private EssayService essayService;
 
     @ApiOperation(value = "자소서 보기")
-    @GetMapping("/{essayId}")
+    @GetMapping("/getEssay/{essayId}")
     public ResponseEntity<Essay> getEssay(@PathVariable(value = "essayId") int essayId) {
         Essay essay = essayService.getEssay(essayId);
         return new ResponseEntity< >(essay, HttpStatus.OK);
+    }
+
+    @ApiOperation(value = "유저당 자소서 보기")
+    @GetMapping("/getEssayByUser/{userId}")
+    public ResponseEntity<List<Essay>> getEssayByUserId(@PathVariable(value = "userId") int userId) {
+        List<Essay> essays = essayService.getEssayByUser(userId);
+        return new ResponseEntity< >(essays, HttpStatus.OK);
     }
 
     @ApiOperation(value = "자소서 작성")

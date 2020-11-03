@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -21,6 +22,17 @@ public class EssayServiceImpl implements EssayService {
     private EssayRepository essayRepository;
     @Autowired
     private UserRepository userRepository;
+
+    @Override
+    public List<Essay> getEssayByUser(int id) {
+        List<Essay> essays  = essayRepository.findAllByUser(userRepository.findById(id)
+                .orElseThrow(()
+                        ->  new ResourceNotFoundException("User", "id", id)))
+                .orElseThrow(()
+                        ->  new ResourceNotFoundException("Essays", "id", id));
+        return essays;
+
+    }
 
     @Override
     public Essay getEssay(int id) {

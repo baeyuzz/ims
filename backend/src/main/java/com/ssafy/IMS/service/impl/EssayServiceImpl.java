@@ -5,6 +5,7 @@ import com.ssafy.IMS.model.Essay;
 import com.ssafy.IMS.model.User;
 import com.ssafy.IMS.payload.ApiResponse;
 import com.ssafy.IMS.payload.EssayRequest;
+import com.ssafy.IMS.payload.EssayUpdateRequest;
 import com.ssafy.IMS.repository.EssayRepository;
 import com.ssafy.IMS.repository.UserRepository;
 import com.ssafy.IMS.service.EssayService;
@@ -47,25 +48,22 @@ public class EssayServiceImpl implements EssayService {
     }
 
     @Override
-    public Essay updateEssay(int id, EssayRequest essayRequest) {
-        Optional<Essay> oldEssay = essayRepository.findById(id);
+    public Essay updateEssay(EssayUpdateRequest essayUpdateRequest) {
+        Optional<Essay> oldEssay = essayRepository.findById(essayUpdateRequest.getId());
         oldEssay.ifPresent(newEssay->{
-            newEssay.setContent(essayRequest.getContent());
-            newEssay.setUser(userRepository.findByEmail(essayRequest.getEmail())
-                    .orElseThrow(()
-                            -> new UsernameNotFoundException(String.format("유저를 찾지 못헀습니다"))));
-            newEssay.setResult1(essayRequest.getResult1());
-            newEssay.setResult2(essayRequest.getResult2());
-            newEssay.setResult3(essayRequest.getResult3());
-            newEssay.setResult4(essayRequest.getResult4());
-            newEssay.setResult5(essayRequest.getResult5());
-            newEssay.setResult6(essayRequest.getResult6());
-            newEssay.setResult7(essayRequest.getResult7());
-            newEssay.setResult8(essayRequest.getResult8());
+            newEssay.setContent(essayUpdateRequest.getContent());
+            newEssay.setResult1(essayUpdateRequest.getResult1());
+            newEssay.setResult2(essayUpdateRequest.getResult2());
+            newEssay.setResult3(essayUpdateRequest.getResult3());
+            newEssay.setResult4(essayUpdateRequest.getResult4());
+            newEssay.setResult5(essayUpdateRequest.getResult5());
+            newEssay.setResult6(essayUpdateRequest.getResult6());
+            newEssay.setResult7(essayUpdateRequest.getResult7());
+            newEssay.setResult8(essayUpdateRequest.getResult8());
             essayRepository.save(newEssay);
         });
-        return essayRepository.findById(id).orElseThrow(() ->
-                new ResourceNotFoundException("Essay", "id", id));
+        return essayRepository.findById(essayUpdateRequest.getId()).orElseThrow(() ->
+                new ResourceNotFoundException("Essay", "id", essayUpdateRequest.getId()));
     }
 
     @Override

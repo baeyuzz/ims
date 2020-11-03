@@ -40,7 +40,7 @@
           회원정보수정
         </v-btn>
         <v-dialog v-model="dialog" max-width="500">
-          <Signup :signup="signup" @close="close"></Signup>
+          <Signup @close="close"></Signup>
         </v-dialog>
       </div>
     </v-main>

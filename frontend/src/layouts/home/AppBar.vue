@@ -85,6 +85,7 @@ export default {
       this.login = false;
     },
     logout() {
+      this.$store.commit("setId", 0);
       this.$store.commit("setName", "");
       this.$store.commit("setEmail", "");
       this.$store.commit("setIsLogin", false);

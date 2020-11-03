@@ -33,6 +33,9 @@ export default new Vuex.Store({
   },
   actions: {},
   mutations: {
+    setId(state, id) {
+      state.id = id;
+    },
     setName(state, name) {
       state.name = name;
     },

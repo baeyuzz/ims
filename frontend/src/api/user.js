@@ -47,9 +47,33 @@ function login(email, password, success, fail) {
     .catch(fail);
 }
 
-function update(user, success, fail) {
+function signout(email, success, fail) {
   instance
-    .put("/api/users", JSON.stringify(user))
+    .delete("api/user/" + email)
+    .then(success)
+    .catch(fail);
+}
+
+function update(
+  email,
+  name,
+  password,
+  company1,
+  company2,
+  company3,
+  success,
+  fail
+) {
+  const user = {
+    email: email,
+    name: name,
+    password: password,
+    company1: company1,
+    company2: company2,
+    company3: company3
+  };
+  instance
+    .put("/api/user/update", JSON.stringify(user))
     .then(success)
     .catch(fail);
 }
@@ -64,4 +88,4 @@ function save(data, id, success, fail, final) {
     .finally(final);
 }
 
-export { findById, signup, login, update, save };
+export { findById, signup, login, update, save, signout };

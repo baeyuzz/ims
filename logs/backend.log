@@ -1,33 +1,33 @@
-2020-10-28 10:14:16 [main] INFO  com.ssafy.IMS.Application - Starting Application on DESKTOP-KVCQHCD with PID 15564 (C:\SSAFY\final\s03p31a101\backend\target\classes started by multicampus in C:\SSAFY\final\s03p31a101)
-2020-10-28 10:14:16 [main] INFO  com.ssafy.IMS.Application - No active profile set, falling back to default profiles: default
-2020-10-28 10:14:17 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
-2020-10-28 10:14:17 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 172ms. Found 4 repository interfaces.
-2020-10-28 10:14:18 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$b8cf8cae] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-10-28 10:14:18 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
-2020-10-28 10:14:18 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2020-10-28 10:14:18 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.17]
-2020-10-28 10:14:18 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2020-10-28 10:14:18 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2020-10-28 10:14:19 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2020-10-28 10:14:19 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+2020-11-03 09:15:36 [main] INFO  com.ssafy.IMS.Application - Starting Application on DESKTOP-KVCQHCD with PID 4572 (C:\SSAFY\final\s03p31a101\backend\target\classes started by multicampus in C:\SSAFY\final\s03p31a101)
+2020-11-03 09:15:36 [main] INFO  com.ssafy.IMS.Application - No active profile set, falling back to default profiles: default
+2020-11-03 09:15:37 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-11-03 09:15:37 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 145ms. Found 4 repository interfaces.
+2020-11-03 09:15:38 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$b8cf8cae] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-03 09:15:38 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-11-03 09:15:38 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-03 09:15:38 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-11-03 09:15:38 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-03 09:15:39 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-11-03 09:15:39 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-11-03 09:15:39 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2020-10-28 10:14:19 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.9.Final}
-2020-10-28 10:14:19 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
-2020-10-28 10:14:19 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
-2020-10-28 10:14:19 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2020-10-28 10:14:20 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-10-28 10:14:20 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-10-28 10:14:21 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
-2020-10-28 10:14:21 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
-2020-10-28 10:14:21 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
-2020-10-28 10:14:21 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
-2020-10-28 10:14:21 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
-2020-10-28 10:14:21 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
-2020-10-28 10:14:21 [main] INFO  com.ssafy.IMS.Application - Started Application in 5.697 seconds (JVM running for 6.173)
-2020-10-28 10:15:05 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-10-28 10:15:05 [http-nio-8080-exec-1] INFO  o.h.h.i.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
-2020-10-28 10:15:05 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+2020-11-03 09:15:39 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.9.Final}
+2020-11-03 09:15:39 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2020-11-03 09:15:39 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-11-03 09:15:39 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-11-03 09:15:40 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-03 09:15:40 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-03 09:15:41 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-11-03 09:15:41 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-03 09:15:41 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2020-11-03 09:15:41 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2020-11-03 09:15:41 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2020-11-03 09:15:41 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-03 09:15:41 [main] INFO  com.ssafy.IMS.Application - Started Application in 5.225 seconds (JVM running for 5.752)
+2020-11-03 09:16:57 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-03 09:16:57 [http-nio-8080-exec-2] INFO  o.h.h.i.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+2020-11-03 09:16:57 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
     select
         user0_.id as id1_3_,
         user0_.company1 as company2_3_,
@@ -40,7 +40,21 @@
         user user0_ 
     where
         user0_.email=?
-2020-10-28 10:18:26 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+2020-11-03 09:17:56 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        user0_.id as col_0_0_ 
+    from
+        user user0_ 
+    where
+        user0_.email=? limit ?
+2020-11-03 09:17:56 [http-nio-8080-exec-4] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        user
+        (company1, company2, company3, email, name, password) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2020-11-03 09:17:58 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
     select
         user0_.id as id1_3_,
         user0_.company1 as company2_3_,
@@ -53,7 +67,133 @@
         user user0_ 
     where
         user0_.email=?
-2020-10-28 10:40:57 [http-nio-8080-exec-7] DEBUG org.hibernate.SQL - 
+2020-11-03 09:33:10 [http-nio-8080-exec-9] DEBUG org.hibernate.SQL - 
+    select
+        user0_.id as id1_3_,
+        user0_.company1 as company2_3_,
+        user0_.company2 as company3_3_,
+        user0_.company3 as company4_3_,
+        user0_.email as email5_3_,
+        user0_.name as name6_3_,
+        user0_.password as password7_3_ 
+    from
+        user user0_ 
+    where
+        user0_.email=?
+2020-11-03 09:33:18 [http-nio-8080-exec-1] DEBUG org.hibernate.SQL - 
+    select
+        user0_.id as id1_3_,
+        user0_.company1 as company2_3_,
+        user0_.company2 as company3_3_,
+        user0_.company3 as company4_3_,
+        user0_.email as email5_3_,
+        user0_.name as name6_3_,
+        user0_.password as password7_3_ 
+    from
+        user user0_ 
+    where
+        user0_.email=?
+2020-11-03 09:57:30 [main] INFO  com.ssafy.IMS.Application - Starting Application on DESKTOP-KVCQHCD with PID 11660 (C:\SSAFY\final\s03p31a101\backend\target\classes started by multicampus in C:\SSAFY\final\s03p31a101)
+2020-11-03 09:57:31 [main] INFO  com.ssafy.IMS.Application - No active profile set, falling back to default profiles: default
+2020-11-03 09:57:31 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2020-11-03 09:57:31 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 139ms. Found 4 repository interfaces.
+2020-11-03 09:57:32 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$70cbc7ff] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-11-03 09:57:32 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2020-11-03 09:57:32 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2020-11-03 09:57:32 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.17]
+2020-11-03 09:57:32 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-11-03 09:57:33 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2020-11-03 09:57:33 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2020-11-03 09:57:33 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2020-11-03 09:57:33 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.3.9.Final}
+2020-11-03 09:57:33 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2020-11-03 09:57:33 [main] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2020-11-03 09:57:33 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2020-11-03 09:57:34 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2020-11-03 09:57:34 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2020-11-03 09:57:34 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [public org.springframework.http.ResponseEntity<springfox.documentation.spring.web.json.Json> springfox.documentation.swagger2.web.Swagger2Controller.getDocumentation(java.lang.String,javax.servlet.http.HttpServletRequest)]
+2020-11-03 09:57:35 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2020-11-03 09:57:35 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+2020-11-03 09:57:35 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2020-11-03 09:57:35 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references
+2020-11-03 09:57:35 [main] INFO  s.d.s.w.r.o.CachingOperationNameGenerator - Generating unique operation named: deleteUserUsingDELETE_1
+2020-11-03 09:57:35 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2020-11-03 09:57:35 [main] INFO  com.ssafy.IMS.Application - Started Application in 4.813 seconds (JVM running for 5.182)
+2020-11-03 09:57:56 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-11-03 09:57:56 [http-nio-8080-exec-2] INFO  o.h.h.i.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+2020-11-03 09:57:56 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        user0_.id as id1_3_,
+        user0_.company1 as company2_3_,
+        user0_.company2 as company3_3_,
+        user0_.company3 as company4_3_,
+        user0_.email as email5_3_,
+        user0_.name as name6_3_,
+        user0_.password as password7_3_ 
+    from
+        user user0_ 
+    where
+        user0_.email=?
+2020-11-03 09:57:56 [http-nio-8080-exec-2] DEBUG org.hibernate.SQL - 
+    delete 
+    from
+        user 
+    where
+        id=?
+2020-11-03 10:01:40 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        user0_.id as col_0_0_ 
+    from
+        user user0_ 
+    where
+        user0_.email=? limit ?
+2020-11-03 10:01:40 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    insert 
+    into
+        user
+        (company1, company2, company3, email, name, password) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2020-11-03 10:01:49 [http-nio-8080-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        user0_.id as id1_3_,
+        user0_.company1 as company2_3_,
+        user0_.company2 as company3_3_,
+        user0_.company3 as company4_3_,
+        user0_.email as email5_3_,
+        user0_.name as name6_3_,
+        user0_.password as password7_3_ 
+    from
+        user user0_ 
+    where
+        user0_.email=?
+2020-11-03 10:18:50 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    select
+        user0_.id as id1_3_,
+        user0_.company1 as company2_3_,
+        user0_.company2 as company3_3_,
+        user0_.company3 as company4_3_,
+        user0_.email as email5_3_,
+        user0_.name as name6_3_,
+        user0_.password as password7_3_ 
+    from
+        user user0_ 
+    where
+        user0_.email=?
+2020-11-03 10:18:51 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
+    update
+        user 
+    set
+        company1=?,
+        company2=?,
+        company3=?,
+        name=?,
+        password=? 
+    where
+        id=?
+2020-11-03 10:18:51 [http-nio-8080-exec-5] DEBUG org.hibernate.SQL - 
     select
         user0_.id as id1_3_,
         user0_.company1 as company2_3_,

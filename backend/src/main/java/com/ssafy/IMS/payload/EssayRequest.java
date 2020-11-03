@@ -1,15 +1,15 @@
 package com.ssafy.IMS.payload;
 
 import com.ssafy.IMS.model.User;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.validation.constraints.NotBlank;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class EssayRequest {
 
     @NotBlank

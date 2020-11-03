@@ -2,7 +2,25 @@
   <v-app>
     <v-main>
       <div class="cal">
+        <h1>일정 관리</h1>
         <Calendar />
+        <v-divider style="margin-bottom:50px; margin-top:50px"></v-divider>
+        <h1>자기소개서 관리</h1>
+        <v-list>
+          <v-row v-for="(essay, index) in essays" :key="essay.id">
+            <v-col
+              style="text-align:left; cursor:pointer"
+              cols="11"
+              @click="gotoEssay(index)"
+            >
+              {{ essay.content.substring(0, 50) }}...
+            </v-col>
+            <v-col cols="1">
+              <v-icon @click="deleteEssay(index)">mdi-delete</v-icon>
+            </v-col>
+          </v-row>
+        </v-list>
+        <v-divider style="margin-bottom:20px; margin-top:50px"></v-divider>
         <v-btn
           color="error"
           class="mr-4"
@@ -21,13 +39,6 @@
         >
           회원정보수정
         </v-btn>
-        <v-list>
-          <div v-for="essay in essays" :key="essay.id">
-            <v-list-item>
-              {{ essay.content }}
-            </v-list-item>
-          </div>
-        </v-list>
         <v-dialog v-model="dialog" max-width="500">
           <Signup :signup="signup" @close="close"></Signup>
         </v-dialog>
@@ -40,6 +51,7 @@
 import Signup from "@/layouts/home/Signup";
 import { signout } from "../api/user.js";
 import { getEssayByUser } from "../api/essay.js";
+import { deleteEssay } from "../api/essay.js";
 export default {
   name: "Mypage",
   data() {
@@ -65,6 +77,38 @@ export default {
     );
   },
   methods: {
+    gotoEssay(index) {
+      let list = [];
+      list.push(this.essays[index].result1);
+      list.push(this.essays[index].result2);
+      list.push(this.essays[index].result3);
+      list.push(this.essays[index].result4);
+      list.push(this.essays[index].result5);
+      list.push(this.essays[index].result6);
+      list.push(this.essays[index].result7);
+      list.push(this.essays[index].result8);
+
+      this.$store.commit("setResult", list);
+
+      console.log(list);
+
+      this.$router.push("/ai-result");
+    },
+    deleteEssay(index) {
+      var scope = this;
+      var check = confirm("삭제하시겠습니까?");
+      if (!check) return;
+      deleteEssay(
+        this.essays[index].id,
+        function(response) {
+          alert("삭제되었습니다.");
+          scope.$router.go(scope.$router.currentRoute);
+        },
+        function(error) {
+          alert("실패");
+        }
+      );
+    },
     close() {
       this.dialog = false;
     },

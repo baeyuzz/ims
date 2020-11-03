@@ -55,9 +55,13 @@ export default {
         this.user.email,
         this.user.password,
         function(response) {
+          scope.$store.commit("setId", response.date.id);
           scope.$store.commit("setName", response.data.name);
           scope.$store.commit("setEmail", response.data.email);
           scope.$store.commit("setIsLogin", true);
+          scope.$store.commit("setCompany1", response.data.company1);
+          scope.$store.commit("setCompany2", response.data.company2);
+          scope.$store.commit("setCompany3", response.data.company3);
           scope.$emit("close");
         },
         function(error) {

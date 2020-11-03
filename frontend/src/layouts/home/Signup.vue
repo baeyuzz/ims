@@ -1,9 +1,35 @@
 <template>
   <v-card>
     <v-container>
-      <v-card-title class="headline">Sign Up</v-card-title>
-      <v-text-field label="이메일" v-model="user.email"></v-text-field>
-      <v-text-field label="이름" v-model="user.name"></v-text-field>
+      <v-card-title v-if="user.email == null" class="headline"
+        >Sign Up</v-card-title
+      >
+      <v-card-title v-if="user.email != null" class="headline"
+        >회원정보수정</v-card-title
+      >
+      <v-text-field
+        v-if="user.email == null"
+        label="이메일"
+        v-model="user.email"
+      ></v-text-field>
+      <v-text-field
+        v-if="user.email == null"
+        label="이름"
+        v-model="user.name"
+      ></v-text-field>
+      <v-text-field
+        v-if="user.email != null"
+        label="이메일"
+        v-model="user.email"
+        readonly
+      ></v-text-field>
+      <v-text-field
+        v-if="user.email != null"
+        label="이름"
+        v-model="user.name"
+        readonly
+      ></v-text-field>
+
       <v-text-field
         label="비밀번호"
         v-model="user.password"
@@ -29,9 +55,18 @@
 
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn text @click="register" min-width="100px">
+        <v-btn
+          v-if="user.email == null"
+          text
+          @click="register"
+          min-width="100px"
+        >
           <v-icon>mdi-account-multiple-plus</v-icon>
           SignUp
+        </v-btn>
+        <v-btn v-if="user.email != null" text @click="update" min-width="100px">
+          <v-icon>mdi-account-multiple-plus</v-icon>
+          정보 수정
         </v-btn>
       </v-card-actions>
     </v-container>
@@ -40,6 +75,7 @@
 
 <script>
 import { signup } from "../../api/user.js";
+import { update } from "../../api/user.js";
 
 export default {
   props: ["signup"],
@@ -56,6 +92,13 @@ export default {
       }
     };
   },
+  mounted() {
+    this.user.email = this.$store.state.email;
+    this.user.name = this.$store.state.name;
+    this.user.company1 = this.$store.state.company1;
+    this.user.company2 = this.$store.state.company2;
+    this.user.company3 = this.$store.state.company3;
+  },
   methods: {
     register() {
       var vm = this;
@@ -70,6 +113,28 @@ export default {
           this.user.company3,
           function() {
             alert("회원가입이 완료되었습니다.");
+            vm.$emit("close");
+          },
+          function(error) {
+            alert("실패!");
+          }
+        );
+      } else {
+        alert("비밀번호가 일치하지 않습니다.");
+      }
+    },
+    update() {
+      var vm = this;
+      if (this.user.password === this.user.passwordConfirm) {
+        update(
+          this.user.email,
+          this.user.name,
+          this.user.password,
+          this.user.company1,
+          this.user.company2,
+          this.user.company3,
+          function() {
+            alert("회원정보가 수정되었습니다.");
             vm.$emit("close");
           },
           function(error) {

@@ -71,13 +71,13 @@ export default {
 
   components: {
     HomeDrawer: () => import("./Drawer"),
-    Login,
+    Login
   },
 
   data: () => ({
     drawer: null,
     items: ["Home", "AI-Analysis"],
-    login: false,
+    login: false
   }),
 
   methods: {
@@ -85,9 +85,14 @@ export default {
       this.login = false;
     },
     logout() {
+      this.$store.commit("setId", 0);
       this.$store.commit("setName", "");
       this.$store.commit("setEmail", "");
       this.$store.commit("setIsLogin", false);
+      this.$store.commit("setCompany1", "");
+      this.$store.commit("setCompany2", "");
+      this.$store.commit("setCompany3", "");
+      this.$router.push("/");
     },
     go2mypage() {
       this.$router.push("/mypage");
@@ -96,8 +101,8 @@ export default {
       // this.$router.go(this.$router.currentRoute); 이건 새로고침
       const path = "/";
       if (this.$route.path !== path) this.$router.push(path);
-    },
-  },
+    }
+  }
 };
 </script>
 

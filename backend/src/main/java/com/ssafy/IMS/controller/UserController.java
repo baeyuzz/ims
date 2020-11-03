@@ -32,15 +32,15 @@ public class UserController {
 
     @ApiOperation(value = "이메일이 사용가능한지 확인")
     @GetMapping("/checkEmailAvailability")
-    public ResponseEntity<UserIdentityAvailability> checkEmailAvailability(@RequestParam(value = "email") String email) {
+    public ResponseEntity<UserIdentityAvailability> checkEmailAvailability(@PathVariable(value = "email") String email) {
         UserIdentityAvailability userIdentityAvailability = userService.checkEmailAvailability(email);
         return new ResponseEntity< >(userIdentityAvailability, HttpStatus.OK);
     }
 
     @ApiOperation(value = "유저 정보 보기")
-    @GetMapping("/{username}/profile")
-    public ResponseEntity<UserProfile> getUserProfile(@PathVariable(value = "username") String username) {
-        UserProfile userProfile = userService.getUserProfile(username);
+    @GetMapping("/profile/{email}")
+    public ResponseEntity<UserProfile> getUserProfile(@PathVariable(value = "email") String email) {
+        UserProfile userProfile = userService.getUserProfile(email);
 
         return new ResponseEntity< >(userProfile, HttpStatus.OK);
     }
@@ -66,7 +66,7 @@ public class UserController {
 
     @ApiOperation(value = "회원탈퇴")
     @DeleteMapping("/{email}")
-    public ResponseEntity<ApiResponse> deleteUser(@RequestParam(value = "email") String email) {
+    public ResponseEntity<ApiResponse> deleteUser(@PathVariable(value = "email") String email) {
         ApiResponse apiResponse = userService.deleteUser(email);
 
         return new ResponseEntity< >(apiResponse, HttpStatus.OK);

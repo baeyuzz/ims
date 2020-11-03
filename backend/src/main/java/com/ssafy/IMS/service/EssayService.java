@@ -10,7 +10,7 @@ public interface EssayService {
 
     Essay addEssay(EssayRequest essayRequest);
 
-    Essay updateEssay(int id, EssayRequest essayRequest);
+    Essay updateEssay(EssayUpdateRequest essayUpdateRequest);
 
     ApiResponse deleteEssay(int essayId);
 

@@ -2,10 +2,7 @@ package com.ssafy.IMS.controller;
 
 import com.ssafy.IMS.model.Essay;
 import com.ssafy.IMS.model.User;
-import com.ssafy.IMS.payload.ApiResponse;
-import com.ssafy.IMS.payload.EssayRequest;
-import com.ssafy.IMS.payload.UserInfoRequest;
-import com.ssafy.IMS.payload.UserProfile;
+import com.ssafy.IMS.payload.*;
 import com.ssafy.IMS.service.EssayService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -43,15 +40,15 @@ public class EssayController {
     }
 
     @ApiOperation(value = "자소서 업데이트")
-    @PutMapping("/update/{essayId}")
-    public ResponseEntity<Essay> updateEssay(@PathVariable(value = "essayId") int essayId,@Valid @RequestBody EssayRequest essayRequest) {
-        Essay result = essayService.updateEssay(essayId,essayRequest);
+    @PutMapping("/update")
+    public ResponseEntity<Essay> updateEssay(@Valid @RequestBody EssayUpdateRequest essayUpdateRequest) {
+        Essay result = essayService.updateEssay(essayUpdateRequest);
         return new ResponseEntity< >(result, HttpStatus.CREATED);
     }
 
     @ApiOperation(value = "회원탈퇴")
     @DeleteMapping("/{essayId}")
-    public ResponseEntity<ApiResponse> deleteUser(@RequestParam(value = "essayId") int essayId) {
+    public ResponseEntity<ApiResponse> deleteUser(@PathVariable(value = "essayId") int essayId) {
         ApiResponse apiResponse = essayService.deleteEssay(essayId);
         return new ResponseEntity< >(apiResponse, HttpStatus.OK);
     }

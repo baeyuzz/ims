@@ -1,35 +1,32 @@
 <template>
   <v-card>
     <v-container>
-      <v-card-title v-if="user.email == null" class="headline"
-        >Sign Up</v-card-title
-      >
-      <v-card-title v-if="user.email != null" class="headline"
+      <v-card-title v-if="isSignUp" class="headline">Sign Up</v-card-title>
+      <v-card-title v-if="!isSignUp" class="headline"
         >회원정보수정</v-card-title
       >
       <v-text-field
-        v-if="user.email == null"
+        v-if="isSignUp"
         label="이메일"
         v-model="user.email"
       ></v-text-field>
       <v-text-field
-        v-if="user.email == null"
+        v-if="isSignUp"
         label="이름"
         v-model="user.name"
       ></v-text-field>
       <v-text-field
-        v-if="user.email != null"
+        v-if="!isSignUp"
         label="이메일"
         v-model="user.email"
         readonly
       ></v-text-field>
       <v-text-field
-        v-if="user.email != null"
+        v-if="!isSignUp"
         label="이름"
         v-model="user.name"
         readonly
       ></v-text-field>
-
       <v-text-field
         label="비밀번호"
         v-model="user.password"
@@ -55,16 +52,11 @@
 
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn
-          v-if="user.email == null"
-          text
-          @click="register"
-          min-width="100px"
-        >
+        <v-btn v-if="isSignUp" text @click="register" min-width="100px">
           <v-icon>mdi-account-multiple-plus</v-icon>
           SignUp
         </v-btn>
-        <v-btn v-if="user.email != null" text @click="update" min-width="100px">
+        <v-btn v-if="!isSignUp" text @click="update" min-width="100px">
           <v-icon>mdi-account-multiple-plus</v-icon>
           정보 수정
         </v-btn>
@@ -89,7 +81,8 @@ export default {
         company1: "",
         company2: "",
         company3: ""
-      }
+      },
+      isSignUp: true
     };
   },
   mounted() {
@@ -98,6 +91,10 @@ export default {
     this.user.company1 = this.$store.state.company1;
     this.user.company2 = this.$store.state.company2;
     this.user.company3 = this.$store.state.company3;
+    if (this.user.email == "" || this.user.email == null) this.isSignUp = true;
+    else this.isSignUp = false;
+
+    alert(this.user.email);
   },
   methods: {
     register() {

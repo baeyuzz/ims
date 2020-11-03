@@ -27,7 +27,7 @@ public class EssayController {
     private EssayService essayService;
 
     @ApiOperation(value = "자소서 보기")
-    @GetMapping("/essay/{essayId}")
+    @GetMapping("/{essayId}")
     public ResponseEntity<Essay> getEssay(@PathVariable(value = "essayId") int essayId) {
         Essay essay = essayService.getEssay(essayId);
         return new ResponseEntity< >(essay, HttpStatus.OK);

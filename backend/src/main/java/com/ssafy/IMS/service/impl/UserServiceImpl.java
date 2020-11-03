@@ -28,8 +28,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserProfile getUserProfile(String name) {
-        User user =userRepository.getUserByName(name);
+    public UserProfile getUserProfile(String email) {
+        User user =userRepository.getUserByEmail(email);
         return new UserProfile(user.getId(),user.getName(),user.getEmail(),user.getCompany1(),user.getCompany2(),user.getCompany3());
     }
 

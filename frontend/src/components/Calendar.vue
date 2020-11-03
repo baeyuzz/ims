@@ -173,6 +173,8 @@ export default {
     selectedOpen: false,
     events: [],
     dialog: false,
+    // eamil : null,
+    email : "",
   }),
   computed: {
     title() {
@@ -212,14 +214,16 @@ export default {
   },
   mounted() {
     this.getEvents();
+    // this.email = this.$store.state.email;
   },
   methods: {
     async getEvents() {
-      let snapshot = await db.collection("calEvent").get();
+      let snapshot = await db.collection("calEvent").where("email", "==",  this.$store.state.email).get();
       let events = [];
       snapshot.forEach((doc) => {
         let appData = doc.data();
         appData.id = doc.id;
+
         events.push(appData);
       });
       this.events = events;
@@ -232,6 +236,7 @@ export default {
           start: this.start,
           end: this.end,
           color: this.color,
+          email: this.$store.state.email,
         });
         this.getEvents();
         this.name = "";
@@ -239,6 +244,7 @@ export default {
         this.start = "";
         this.end = "";
         this.color = "#1976d2";
+        
       } else {
         alert("Name, Start Date and End date required");
       }

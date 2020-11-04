@@ -20,7 +20,7 @@
     </v-container>
 
 
-    <div id="app">
+
       <v-app id="inspire">
         <div class="text-center">             
           <v-overlay :value="overlay">
@@ -32,7 +32,7 @@
           </v-overlay>
         </div>
       </v-app>
-    </div>
+
 
 
   </div>

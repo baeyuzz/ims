@@ -1,29 +1,31 @@
+<template>
+  <!-- <div class="text-center" style="background-color: #7FDBFF;"> -->
+  <div class="text-center">
+  <!-- <div class="text-center" style="background-color: #ACE7FF;"> -->
+    <!-- <br> -->
+    <img src="@/assets/404.png" width="70%"/>
+    <br>
+    <v-btn :to="{ name: 'Home' }" style="position: relative; top: -50px;  ">
+      홈으로 돌아가기
+
+      <v-icon>mdi-home-outline</v-icon>
+      </v-btn>
+      <br>
+  </div>
+</template>
+
 <script>
-  // Extensions
-  import View from '@/views/View'
+export default {
+  name: "FourOhFour",
 
-  // Mixins
-  import LoadSections from '@/mixins/load-sections'
-
-  export default {
-    name: 'FourOhFour',
-
-    metaInfo: { title: 'Oops! No Page Found' },
-
-    extends: View,
-
-    mixins: [
-      LoadSections([
-        '404',
-        'info-alt',
-      ]),
-    ],
-
-    props: {
-      id: {
-        type: String,
-        default: 'about',
-      },
-    },
-  }
+  provide: {
+    heading: { align: "center" },
+  },
+};
 </script>
+
+<style scoped>
+  div {
+    background-color: rgb(194, 222, 239);
+  }
+</style>

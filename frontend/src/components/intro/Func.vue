@@ -72,4 +72,15 @@ i.v-icon.v-icon {
 .cards {
   padding: 150px 10px;
 }
+
+@media (max-width: 960px){
+  .funcs {
+    display: grid;
+  }
+  .cards {
+    padding: 0;
+    margin: 5%;
+
+  }
+}
 </style>

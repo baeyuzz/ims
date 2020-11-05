@@ -1,17 +1,19 @@
 <template>
-  <v-parallax src="@/assets/parallax.png">
+  <v-parallax src="@/assets/parallax.png" class="aboutus">
     <div style="text-align: center">
-      <h1>About Us</h1>
+      <h1> Team IMS </h1>
+      <br />
+      <h3> 자기소개서 역량 분석 웹 서비스</h3>
       <br />
       <hr style="width: 90%; margin: auto" />
       <br />
       <br />
       <v-container>
         <v-row>
-          <v-col v-for="(feature, i) in features" :key="i" cols="12" md="4">
+          <v-col v-for="(feature, i) in features" :key="i">
             <div style="padding: 20px">
               <h2>
-                <v-icon x-large color="white">{{ feature.icon }}</v-icon>
+                <v-icon x-large color="white" class="icons">{{ feature.icon }}</v-icon>
                 {{ feature.name }}
               </h2>
               <div style="margin-top: 15px">
@@ -26,13 +28,9 @@
 </template>
 <script>
 export default {
-    data: () => ({
+  data: () => ({
     features: [
-      {
-        name: "Team IMS",
-        desc: "자기소개서 역량 분석 웹 서비스",
-        icon: '',
-      },
+
       {
         name: "윤경준",
         desc: "팀장 / Full Stack",
@@ -60,5 +58,22 @@ export default {
       },
     ],
   }),
-}
+};
 </script>
+<style scoped>
+@media (max-width: 960px) {
+  h2,h3 {
+    font-size: 100%;
+  }
+  div {
+    margin: 0;
+    padding: 0;
+  }
+  h1 {
+    font-size: 25px;
+  }
+  .icons {
+    display : none;
+  }
+}
+</style>

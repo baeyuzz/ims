@@ -92,9 +92,7 @@ export default {
 
       console.log(list);
 
-      this.$store.commit("setContent",this.essays[index].content)
-
-      this.$router.push("/myEssay");
+      this.$router.push("/ai-result");
     },
     deleteEssay(index) {
       var scope = this;

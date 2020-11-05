@@ -21,14 +21,14 @@
       <result />
     </div>
     <div class="btns">
-      <v-btn class="mx-1 mb-8 mt-8" width="150" color="primary" @click="go2analysis"
+      <v-btn class="mx-1 mb-8" width="150" color="primary" @click="go2analysis"
         >다시 분석하기</v-btn
       >
 
       <v-btn
         v-if="$store.state.isLogin"
         width="150"
-        class="mx-1 mb-8 mt-8"
+        class="mx-1 mb-8"
         color="warning"
         @click="save"
         ><v-icon>mdi-download</v-icon> 저장하기</v-btn

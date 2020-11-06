@@ -1,4 +1,3 @@
-// Imports
 import Vue from "vue";
 import Router from "vue-router";
 
@@ -39,6 +38,11 @@ const router = new Router({
           path: "mypage",
           name: "MyPage",
           component: () => import("@/views/Mypage.vue")
+        },
+        {
+          path: "myEssay",
+          name: "MyEssay",
+          component: () => import("@/views/MyEssay.vue")
         },
         {
           path: "*",

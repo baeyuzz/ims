@@ -1,4 +1,5 @@
 // userService.js
+import store from "@/store";
 import { createInstance } from "./index.js";
 
 const instance = createInstance();
@@ -61,7 +62,6 @@ function update(
   company1,
   company2,
   company3,
-  success,
   fail
 ) {
   const user = {
@@ -74,7 +74,13 @@ function update(
   };
   instance
     .put("/api/user/update", JSON.stringify(user))
-    .then(success)
+    .then(() =>{
+      alert("회원정보가 수정되었습니다.");
+      store.commit("setCompany1",company1);
+      store.commit("setCompany2",company2);
+      store.commit("setCompany3",company3);
+    }
+    )
     .catch(fail);
 }
 

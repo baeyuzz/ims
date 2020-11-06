@@ -60,4 +60,18 @@ public class EssayController {
         ApiResponse apiResponse = essayService.deleteEssay(essayId);
         return new ResponseEntity< >(apiResponse, HttpStatus.OK);
     }
+
+    @ApiOperation(value = "자소서 공유")
+    @PostMapping("share/{essayId}")
+    public ResponseEntity<ApiResponse> shareEssay(@PathVariable(value = "essayId") int essayId) {
+        ApiResponse apiResponse = essayService.shareEssay(essayId);
+        return new ResponseEntity< >(apiResponse, HttpStatus.OK);
+    }
+
+    @ApiOperation(value = "공유된 자소서 리스트")
+    @GetMapping("/share")
+    public ResponseEntity<List<Essay>> getSharedEssay() {
+        List<Essay> essays = essayService.getSharedEssay();
+        return new ResponseEntity< >(essays, HttpStatus.OK);
+    }
 }

@@ -25,19 +25,18 @@ public class EssayServiceImpl implements EssayService {
 
     @Override
     public List<Essay> getEssayByUser(int id) {
-        List<Essay> essays  = essayRepository.findAllByUser(userRepository.findById(id)
-                .orElseThrow(()
-                        ->  new ResourceNotFoundException("User", "id", id)))
-                .orElseThrow(()
-                        ->  new ResourceNotFoundException("Essays", "id", id));
+        List<Essay> essays = essayRepository
+                .findAllByUser(
+                        userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User", "id", id)))
+                .orElseThrow(() -> new ResourceNotFoundException("Essays", "id", id));
         return essays;
 
     }
 
     @Override
     public Essay getEssay(int id) {
-        Essay curEssay = essayRepository.findById(id).orElseThrow(() ->
-                new ResourceNotFoundException("Essay", "id", id));
+        Essay curEssay = essayRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Essay", "id", id));
         return curEssay;
     }
 
@@ -46,8 +45,7 @@ public class EssayServiceImpl implements EssayService {
         Essay newEssay = new Essay();
         newEssay.setContent(essayRequest.getContent());
         newEssay.setUser(userRepository.findByEmail(essayRequest.getEmail())
-                .orElseThrow(()
-                        -> new UsernameNotFoundException(String.format("유저를 찾지 못헀습니다"))));
+                .orElseThrow(() -> new UsernameNotFoundException(String.format("유저를 찾지 못헀습니다"))));
         newEssay.setResult1(essayRequest.getResult1());
         newEssay.setResult2(essayRequest.getResult2());
         newEssay.setResult3(essayRequest.getResult3());
@@ -62,7 +60,7 @@ public class EssayServiceImpl implements EssayService {
     @Override
     public Essay updateEssay(EssayUpdateRequest essayUpdateRequest) {
         Optional<Essay> oldEssay = essayRepository.findById(essayUpdateRequest.getId());
-        oldEssay.ifPresent(newEssay->{
+        oldEssay.ifPresent(newEssay -> {
             newEssay.setContent(essayUpdateRequest.getContent());
             newEssay.setResult1(essayUpdateRequest.getResult1());
             newEssay.setResult2(essayUpdateRequest.getResult2());
@@ -74,8 +72,8 @@ public class EssayServiceImpl implements EssayService {
             newEssay.setResult8(essayUpdateRequest.getResult8());
             essayRepository.save(newEssay);
         });
-        return essayRepository.findById(essayUpdateRequest.getId()).orElseThrow(() ->
-                new ResourceNotFoundException("Essay", "id", essayUpdateRequest.getId()));
+        return essayRepository.findById(essayUpdateRequest.getId())
+                .orElseThrow(() -> new ResourceNotFoundException("Essay", "id", essayUpdateRequest.getId()));
     }
 
     @Override
@@ -83,6 +81,23 @@ public class EssayServiceImpl implements EssayService {
         Essay essay = essayRepository.findById(essayId)
                 .orElseThrow(() -> new ResourceNotFoundException("Essay", "id", essayId));
         essayRepository.deleteById(essayId);
-        return new ApiResponse(Boolean.TRUE,  "자소서가 삭제되었습니다..");
+        return new ApiResponse(Boolean.TRUE, "자소서가 삭제되었습니다..");
+    }
+
+    @Override
+    public ApiResponse shareEssay(int essayId) {
+        Optional<Essay> oldEssay = essayRepository.findById(essayId);
+        oldEssay.ifPresent(newEssay -> {
+            newEssay.setShare("share");
+            essayRepository.save(newEssay);
+        });
+        return new ApiResponse(Boolean.TRUE, "자소서가 공유되었습니다..");
+    }
+
+    @Override
+    public List<Essay> getSharedEssay() {
+        List<Essay> essays = essayRepository.findAllByShare("share");
+        return essays;
+
     }
 }

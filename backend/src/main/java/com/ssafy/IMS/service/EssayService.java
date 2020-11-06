@@ -18,4 +18,8 @@ public interface EssayService {
 
     ApiResponse deleteEssay(int essayId);
 
+    ApiResponse shareEssay(int id);
+
+    List<Essay> getSharedEssay();
+
 }

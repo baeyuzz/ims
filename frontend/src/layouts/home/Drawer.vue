@@ -43,7 +43,7 @@
       </v-list-item>
     </v-list>
     <v-dialog v-model="login" max-width="500" min-width="300">
-      <Login @close="close"></Login>
+      <Login close="close"></Login>
     </v-dialog>
   </v-navigation-drawer>
 </template>

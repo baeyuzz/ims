@@ -3,9 +3,10 @@
     <v-app-bar id="home-app-bar" app color="white" elevation="1" height="80">
       <div>
         <img
+          class="logo"
           src="@/assets/logo.png"
           height="60"
-          style="margin: 5px 0 0 10px; cursor:pointer"
+          style="margin: 5px 0 0 10px; cursor: pointer"
           @click="goHome"
         />
       </div>
@@ -54,7 +55,7 @@
       </div>
 
       <v-dialog v-model="login" max-width="500" min-width="300">
-        <Login @close="close"></Login>
+        <Login close="close"></Login>
       </v-dialog>
       <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = !drawer" />
     </v-app-bar>
@@ -71,13 +72,13 @@ export default {
 
   components: {
     HomeDrawer: () => import("./Drawer"),
-    Login
+    Login,
   },
 
   data: () => ({
     drawer: null,
     items: ["Home", "AI-Analysis"],
-    login: false
+    login: false,
   }),
 
   methods: {
@@ -98,8 +99,8 @@ export default {
       // this.$router.go(this.$router.currentRoute); 이건 새로고침
       const path = "/";
       if (this.$route.path !== path) this.$router.push(path);
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -112,4 +113,11 @@ export default {
   .v-tab
     &::before
       display: none
+</style>
+<style scoped>
+@media (max-width: 450px) {
+  .logo {
+    height : 40px;
+  }
+}
 </style>

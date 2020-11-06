@@ -19,29 +19,20 @@
       <br />
     </v-container>
 
-
-    <!-- <div id="app">-->
-      <!-- <v-app id="inspire"> -->
-        <div class="text-center">              
-          <v-overlay :value="overlay">
-            <v-progress-circular
-              :size="70"
-              color="primary"
-              indeterminate
-            ></v-progress-circular>
-          </v-overlay>
-         </div>
-      <!-- </v-app> -->
- <!--   </div> -->
-
-
+    <div class="text-center">
+      <v-overlay :value="overlay">
+        <v-progress-circular
+          :size="70"
+          color="primary"
+          indeterminate
+        ></v-progress-circular>
+      </v-overlay>
+    </div>
   </div>
-  
 </template>
 <script>
 import { createInstance2 } from "@/api/index.js";
 export default {
-  
   name: "AiInput",
   data: () => ({
     content: "",
@@ -49,23 +40,22 @@ export default {
   }),
 
   watch: {
-    overlay (val) {
-      val && setTimeout(() => {
-        this.overlay = false
-      }, 3000)
+    overlay(val) {
+      val &&
+        setTimeout(() => {
+          this.overlay = false;
+        }, 3000);
     },
   },
 
   methods: {
     submit() {
-
-      if(this.content.length < 200){
-        alert("200자 이상 입력해주세요")
+      if (this.content.length < 200) {
+        alert("200자 이상 입력해주세요");
         return;
       }
 
       this.overlay = true;
-
 
       this.$store.commit("setContent", this.content);
 
@@ -86,15 +76,12 @@ export default {
             list.push(res.data.result8);
             this.$store.commit("setResult", list);
 
-            this.$router.push('/ai-result')
-          }
-          else (            
-            alert('분석 실패')
-          )
+            this.$router.push("/ai-result");
+          } else alert("분석 실패");
         })
         .catch((err) => {
           this.overlay = false;
-          console.log(err);
+          // console.log(err);
         });
     },
   },

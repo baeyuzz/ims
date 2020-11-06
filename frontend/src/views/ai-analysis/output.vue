@@ -1,18 +1,5 @@
 <template>
   <div>
-    <!-- <div class="intro">
-      <h1>AI-Analysis</h1>
-      <hr
-        style="
-          border: solid 1px #1c2341ad;
-          width: 25px;
-          margin: auto;
-          margin-top: 10px;
-          margin-bottom: 10px;
-        "
-      />
-      <div id="h2">자기소개서 분석</div>
-    </div> -->
     <img src="@/assets/ai-intro.png" width="100%" />
 
     <br />
@@ -33,11 +20,6 @@
         @click="save"
         ><v-icon>mdi-download</v-icon> 저장하기</v-btn
       >
-      <!-- <v-btn v-if="isLogin"
-      class="mx-1 mb-8" color="teal" dark>
-        <v-icon>mdi-share</v-icon>
-        공유
-      </v-btn> -->
     </div>
   </div>
 </template>

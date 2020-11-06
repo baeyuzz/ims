@@ -37,7 +37,7 @@ const router = new Router({
         },
         {
           path: "mypage",
-          name: "Mypage",
+          name: "MyPage",
           component: () => import("@/views/Mypage.vue")
         },
         {

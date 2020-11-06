@@ -38,7 +38,7 @@
             active-class="text--primary"
             class="font-weight-bold"
             v-if="$store.state.isLogin"
-            @click="go2mypage"
+            to="/mypage"
           >
             My Page
           </v-tab>
@@ -93,9 +93,6 @@ export default {
       this.$store.commit("setCompany2", "");
       this.$store.commit("setCompany3", "");
       this.$router.push("/");
-    },
-    go2mypage() {
-      this.$router.push("/mypage");
     },
     goHome() {
       // this.$router.go(this.$router.currentRoute); 이건 새로고침

@@ -46,4 +46,7 @@ public class Essay {
     @Column(name = "result8")
     private String result8;
 
+    @Column(name = "share")
+    private String share;
+
 }

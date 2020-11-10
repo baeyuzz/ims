@@ -2,9 +2,6 @@
   <v-card>
     <v-container>
       <v-card-title v-if="isSignUp" class="headline">Sign Up</v-card-title>
-      <v-card-title v-if="!isSignUp" class="headline"
-        >회원정보수정</v-card-title
-      >
       <v-text-field
         v-if="isSignUp"
         label="이메일"
@@ -80,9 +77,9 @@ export default {
         passwordConfirm: "",
         company1: "",
         company2: "",
-        company3: ""
+        company3: "",
       },
-      isSignUp: true
+      isSignUp: true,
     };
   },
   mounted() {
@@ -106,11 +103,11 @@ export default {
           this.user.company1,
           this.user.company2,
           this.user.company3,
-          function() {
+          function () {
             alert("회원가입이 완료되었습니다.");
             vm.$emit("close");
           },
-          function(error) {
+          function (error) {
             alert("실패!");
           }
         );
@@ -121,6 +118,10 @@ export default {
     update() {
       var vm = this;
       if (this.user.password === this.user.passwordConfirm) {
+        if (this.user.password.length == 0) {
+          alert("비밀번호를 입력하세요");
+          return;
+        }
         update(
           this.user.email,
           this.user.name,
@@ -128,19 +129,17 @@ export default {
           this.user.company1,
           this.user.company2,
           this.user.company3,
-          function() {
-            alert("회원정보가 수정되었습니다.");
-            vm.$emit("close");
-          },
-          function(error) {
+
+          function (error) {
+            // console.log(error);
             alert("실패!");
           }
         );
       } else {
         alert("비밀번호가 일치하지 않습니다.");
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

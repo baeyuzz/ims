@@ -22,7 +22,12 @@
           <v-list-item-title v-text="name" />
         </v-list-item-content>
       </v-list-item>
-      <v-list-item color="primary" v-if="$store.state.isLogin">
+      <v-list-item color="primary" v-if="$store.state.isLogin" to='/essays'>
+        <v-list-item-content>
+          Essays
+        </v-list-item-content>
+      </v-list-item>
+      <v-list-item color="primary" v-if="$store.state.isLogin" to='/mypage'>
         <v-list-item-content>
           My Page
         </v-list-item-content>
@@ -43,7 +48,7 @@
       </v-list-item>
     </v-list>
     <v-dialog v-model="login" max-width="500" min-width="300">
-      <Login @close="close"></Login>
+      <Login close="close"></Login>
     </v-dialog>
   </v-navigation-drawer>
 </template>

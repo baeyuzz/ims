@@ -17,7 +17,11 @@ function saveEssay() {
   };
   instance
     .post("/api/essay/makeEssay/", essay)
-    .then(() => alert("저장 되었습니다"))
+    .then((res) => {
+      alert("저장 되었습니다")
+      store.commit("setEssayId", res.data.message)
+    }
+    )
     .catch(() => alert("저장에 실패 했습니다"));
 }
 
@@ -35,4 +39,39 @@ function deleteEssay(id, success, fail) {
     .catch(fail);
 }
 
-export { saveEssay, getEssayByUser, deleteEssay };
+function shareEssay() {
+  saveEssay();
+
+  setTimeout(function () {
+    instance
+      .post("/api/essay/share/" + store.state.essayId)
+      .then(
+        () =>
+          alert("공유되었습니다")
+      )
+      .catch(
+        (err) =>
+          alert(err, "실패")
+      );
+  }, 1000);
+
+}
+
+
+function recommendCompany(rank1, rank2) {
+
+  instance
+      .get(`/api/company/select?rank1=${rank1}&rank2=${rank2}`)
+      .then((res) => {
+          store.commit("setCompany", res.data);
+      }
+      )
+      .catch((err) => (
+          console.log(err)
+      )
+      );
+}
+
+
+
+export { saveEssay, getEssayByUser, deleteEssay, shareEssay, recommendCompany };

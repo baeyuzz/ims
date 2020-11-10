@@ -14,6 +14,6 @@ public interface EssayRepository extends JpaRepository<Essay, Integer> {
     Optional<Essay> findByUser(@NotBlank User user);
     Optional<Essay> findByContent(@NotBlank String content);
     Optional<List<Essay>> findAllByUser(@NotBlank User user);
-    List<Essay> findAllByShare(@NotBlank String share);
+    List<Essay> findAllByShareOrderByIdDesc(@NotBlank String share);
 }
 

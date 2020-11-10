@@ -96,7 +96,7 @@ public class EssayServiceImpl implements EssayService {
 
     @Override
     public List<Essay> getSharedEssay() {
-        List<Essay> essays = essayRepository.findAllByShare("share");
+        List<Essay> essays = essayRepository.findAllByShareOrderByIdDesc("share");
         return essays;
 
     }

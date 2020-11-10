@@ -20,9 +20,9 @@
     </v-container>
 
 
-    <div id="app">
-      <v-app id="inspire">
-        <div class="text-center">             
+    <!-- <div id="app">-->
+      <!-- <v-app id="inspire"> -->
+        <div class="text-center">              
           <v-overlay :value="overlay">
             <v-progress-circular
               :size="70"
@@ -30,9 +30,9 @@
               indeterminate
             ></v-progress-circular>
           </v-overlay>
-        </div>
-      </v-app>
-    </div>
+         </div>
+      <!-- </v-app> -->
+ <!--   </div> -->
 
 
   </div>

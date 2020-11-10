@@ -31,7 +31,8 @@ export default new Vuex.Store({
       "창의성",
       "정직함"
     ],
-    content: ""
+    content: "",
+    essayId: -1,
   },
   actions: {},
   mutations: {
@@ -61,6 +62,9 @@ export default new Vuex.Store({
     },
     setCompany3(state, company) {
       state.company3 = company;
+    },
+    setEssayId(state, essayId) {
+      state.essayId = essayId;
     },
     clearMember(state) {
       state.email = "";

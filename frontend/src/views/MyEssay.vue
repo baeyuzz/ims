@@ -22,13 +22,13 @@
         @click="go2mypage"
         >마이페이지로 이동</v-btn
       >
+
     </div>
   </div>
 </template>
 
 <script>
 import Chart from "chart.js";
-import { saveEssay } from "@/api/essay.js";
 
 export default {
   name: "My-Essay",

@@ -22,6 +22,11 @@
           <v-list-item-title v-text="name" />
         </v-list-item-content>
       </v-list-item>
+      <v-list-item color="primary" v-if="$store.state.isLogin" to='/essays'>
+        <v-list-item-content>
+          Essays
+        </v-list-item-content>
+      </v-list-item>
       <v-list-item color="primary" v-if="$store.state.isLogin" to='/mypage'>
         <v-list-item-content>
           My Page

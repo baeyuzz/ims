@@ -39,6 +39,14 @@
             active-class="text--primary"
             class="font-weight-bold"
             v-if="$store.state.isLogin"
+            to="/essays"
+          >
+            Essays
+          </v-tab>
+          <v-tab
+            active-class="text--primary"
+            class="font-weight-bold"
+            v-if="$store.state.isLogin"
             to="/mypage"
           >
             My Page

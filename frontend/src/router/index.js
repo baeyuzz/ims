@@ -45,6 +45,11 @@ const router = new Router({
           component: () => import("@/views/MyEssay.vue")
         },
         {
+          path: "essays",
+          name: "Share",
+          component: () => import("@/views/Share.vue")
+        },
+        {
           path: "*",
           name: "FourOhFour",
           component: () => import("@/views/404/Index.vue")

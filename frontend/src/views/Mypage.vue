@@ -21,6 +21,14 @@
               <br />
               <h2 style="width: 90%; margin: auto">나의 자기소개서 관리</h2>
               <br />
+              <div
+                style="width: 90%; margin: auto; padding: auto"
+                v-if="essays.length == 0"
+              >
+                저장된 자기소개서가 없습니다
+                <br />
+                자기소개서를 분석받고 저장해보세요!
+              </div>
               <v-list style="width: 90%; margin: auto; padding: auto">
                 <v-row v-for="(essay, index) in essays" :key="essay.id">
                   <v-col
@@ -94,7 +102,7 @@ export default {
       }
     );
   },
- methods: {
+  methods: {
     gotoEssay(index) {
       let list = [];
       list.push(this.essays[index].result1);
@@ -105,12 +113,9 @@ export default {
       list.push(this.essays[index].result6);
       list.push(this.essays[index].result7);
       list.push(this.essays[index].result8);
-
       this.$store.commit("setResult", list);
-
-      // console.log(list);
-
-      this.$store.commit("setContent",this.essays[index].content)
+      this.$store.commit("setContent", this.essays[index].content);
+      this.$store.commit("setEssayId", this.essays[index].id);
 
       this.$router.push("/myEssay");
     },
@@ -120,11 +125,11 @@ export default {
       if (!check) return;
       deleteEssay(
         this.essays[index].id,
-        function(response) {
+        function (response) {
           alert("삭제되었습니다.");
           scope.$router.go(scope.$router.currentRoute);
         },
-        function(error) {
+        function (error) {
           alert("실패");
         }
       );
@@ -138,7 +143,7 @@ export default {
       if (!check) return;
       signout(
         this.$store.state.email,
-        function(response) {
+        function (response) {
           alert("회원탈퇴 되었습니다");
           scope.$store.commit("setId", 0);
           scope.$store.commit("setName", "");
@@ -149,13 +154,13 @@ export default {
           scope.$store.commit("setCompany3", "");
           scope.$router.push("/");
         },
-        function(error) {
+        function (error) {
           console.error(error);
           alert("회원탈퇴에 실패하셨습니다.");
         }
       );
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -20,13 +20,22 @@
         @click="save"
         ><v-icon>mdi-download</v-icon> 저장하기</v-btn
       >
+      <v-btn
+        v-if="$store.state.isLogin"
+        width="150"
+        class="mx-1 mb-8"
+        color="green"
+        dark
+        @click="share"
+        ><v-icon>mdi-share</v-icon>공유하기</v-btn
+      >
     </div>
   </div>
 </template>
 
 <script>
 import Chart from "chart.js";
-import { saveEssay } from "../../api/essay.js";
+import { saveEssay, shareEssay } from "../../api/essay.js";
 
 export default {
   name: "AI-Result",
@@ -41,6 +50,9 @@ export default {
     },
     save() {
       saveEssay();
+    },
+    share() {
+      shareEssay();
     },
   },
 };

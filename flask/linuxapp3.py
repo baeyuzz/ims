@@ -28,7 +28,7 @@ class CreateSkill(Resource):
         except Exception as e:
             return {'error': str(e)}
 
-api.add_resource(CreateSkill, '/analysis/analysis')
+api.add_resource(CreateSkill, '/analysis')
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0",port="5002",debug=True)

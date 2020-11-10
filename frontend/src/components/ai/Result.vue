@@ -76,7 +76,7 @@ export default {
       return second[1] - first[1];
     });
     recommendCompany(this.unordered[0][0], this.unordered[1][0]);
-    this.company = this.$store.state.company;
+    setTimeout(() => (this.company = this.$store.state.company), 200);
   },
 };
 </script>

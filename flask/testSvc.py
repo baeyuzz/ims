@@ -30,20 +30,17 @@ def test(text):
     category = ['글로벌', '도전', '성실', '의사소통', '성취지향', '주인의식', '창의', '정직']
 
     vectorize = TfidfVectorizer(
-        ngram_range=(1, 3),  # n-gram 3
+        ngram_range=(1, 3),
         tokenizer=tokenizer,
-        max_df=0.95,
+        max_df=0.80,
         min_df=0,
         sublinear_tf=True
     )
 
-    clf_from_joblib = joblib.load('./model/svcModel.pkl')
-    print()
-    output = clf_from_joblib.decision_function(content)
-
+    classification = joblib.load('./model/svcModel.pkl')
+    output = classification.decision_function(content)
     probs = np.exp(output) / np.sum(np.exp(output)) * 100
 
-    print(probs)
     return probs
 
 

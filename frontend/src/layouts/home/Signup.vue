@@ -1,9 +1,29 @@
 <template>
   <v-card>
     <v-container>
-      <v-card-title class="headline">Sign Up</v-card-title>
-      <v-text-field label="이메일" v-model="user.email"></v-text-field>
-      <v-text-field label="이름" v-model="user.name"></v-text-field>
+      <v-card-title v-if="isSignUp" class="headline">Sign Up</v-card-title>
+      <v-text-field
+        v-if="isSignUp"
+        label="이메일"
+        v-model="user.email"
+      ></v-text-field>
+      <v-text-field
+        v-if="isSignUp"
+        label="이름"
+        v-model="user.name"
+      ></v-text-field>
+      <v-text-field
+        v-if="!isSignUp"
+        label="이메일"
+        v-model="user.email"
+        readonly
+      ></v-text-field>
+      <v-text-field
+        v-if="!isSignUp"
+        label="이름"
+        v-model="user.name"
+        readonly
+      ></v-text-field>
       <v-text-field
         label="비밀번호"
         v-model="user.password"
@@ -29,9 +49,13 @@
 
       <v-card-actions>
         <v-spacer></v-spacer>
-        <v-btn text @click="register" min-width="100px">
+        <v-btn v-if="isSignUp" text @click="register" min-width="100px">
           <v-icon>mdi-account-multiple-plus</v-icon>
           SignUp
+        </v-btn>
+        <v-btn v-if="!isSignUp" text @click="update" min-width="100px">
+          <v-icon>mdi-account-multiple-plus</v-icon>
+          정보 수정
         </v-btn>
       </v-card-actions>
     </v-container>
@@ -40,6 +64,7 @@
 
 <script>
 import { signup } from "../../api/user.js";
+import { update } from "../../api/user.js";
 
 export default {
   props: ["signup"],
@@ -52,9 +77,19 @@ export default {
         passwordConfirm: "",
         company1: "",
         company2: "",
-        company3: ""
-      }
+        company3: "",
+      },
+      isSignUp: true,
     };
+  },
+  mounted() {
+    this.user.email = this.$store.state.email;
+    this.user.name = this.$store.state.name;
+    this.user.company1 = this.$store.state.company1;
+    this.user.company2 = this.$store.state.company2;
+    this.user.company3 = this.$store.state.company3;
+    if (this.user.email == "" || this.user.email == null) this.isSignUp = true;
+    else this.isSignUp = false;
   },
   methods: {
     register() {
@@ -68,19 +103,43 @@ export default {
           this.user.company1,
           this.user.company2,
           this.user.company3,
-          function() {
+          function () {
             alert("회원가입이 완료되었습니다.");
             vm.$emit("close");
           },
-          function(error) {
+          function (error) {
             alert("실패!");
           }
         );
       } else {
         alert("비밀번호가 일치하지 않습니다.");
       }
-    }
-  }
+    },
+    update() {
+      var vm = this;
+      if (this.user.password === this.user.passwordConfirm) {
+        if (this.user.password.length == 0) {
+          alert("비밀번호를 입력하세요");
+          return;
+        }
+        update(
+          this.user.email,
+          this.user.name,
+          this.user.password,
+          this.user.company1,
+          this.user.company2,
+          this.user.company3,
+
+          function (error) {
+            // console.log(error);
+            alert("실패!");
+          }
+        );
+      } else {
+        alert("비밀번호가 일치하지 않습니다.");
+      }
+    },
+  },
 };
 </script>
 

@@ -21,7 +21,7 @@
           Sign Up
         </v-btn>
         <v-dialog v-model="signup" max-width="500">
-          <Signup :signup="signup" @close="close"></Signup>
+          <Signup :signup="signup" close="close"></Signup>
         </v-dialog>
       </v-card-actions>
     </v-container>
@@ -55,10 +55,16 @@ export default {
         this.user.email,
         this.user.password,
         function(response) {
+          scope.$store.commit("setId", response.data.id);
           scope.$store.commit("setName", response.data.name);
           scope.$store.commit("setEmail", response.data.email);
           scope.$store.commit("setIsLogin", true);
+          scope.$store.commit("setCompany1", response.data.company1);
+          scope.$store.commit("setCompany2", response.data.company2);
+          scope.$store.commit("setCompany3", response.data.company3);
           scope.$emit("close");
+          scope.$router.go(scope.$router.currentRoute);
+
         },
         function(error) {
           console.error(error);

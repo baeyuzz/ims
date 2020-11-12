@@ -15,8 +15,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 	Optional<User> findByEmail(@NotBlank String email);
 	Boolean existsByName(@NotBlank String name);
 	Boolean existsByEmail(@NotBlank String email);
-	default User getUserByName(String name) {
-		return findByName(name)
-				.orElseThrow(() -> new ResourceNotFoundException("User", "name", name));
+	default User getUserByEmail(String email) {
+		return findByEmail(email)
+				.orElseThrow(() -> new ResourceNotFoundException("User", "email", email));
 	}
 }

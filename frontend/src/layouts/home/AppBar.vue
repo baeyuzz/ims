@@ -1,7 +1,15 @@
 <template>
   <div>
     <v-app-bar id="home-app-bar" app color="white" elevation="1" height="80">
-      <div>HAPPY JOB</div>
+      <div>
+        <img
+          class="logo"
+          src="@/assets/logo.png"
+          height="60"
+          style="margin: 5px 0 0 10px; cursor: pointer"
+          @click="goHome"
+        />
+      </div>
       <v-spacer />
 
       <div>
@@ -31,6 +39,15 @@
             active-class="text--primary"
             class="font-weight-bold"
             v-if="$store.state.isLogin"
+            to="/essays"
+          >
+            Essays
+          </v-tab>
+          <v-tab
+            active-class="text--primary"
+            class="font-weight-bold"
+            v-if="$store.state.isLogin"
+            to="/mypage"
           >
             My Page
           </v-tab>
@@ -46,7 +63,7 @@
       </div>
 
       <v-dialog v-model="login" max-width="500" min-width="300">
-        <Login @close="close"></Login>
+        <Login close="close"></Login>
       </v-dialog>
       <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = !drawer" />
     </v-app-bar>
@@ -63,13 +80,13 @@ export default {
 
   components: {
     HomeDrawer: () => import("./Drawer"),
-    Login
+    Login,
   },
 
   data: () => ({
     drawer: null,
-    items: ["Home", "AI-Analysis", "Notice"],
-    login: false
+    items: ["Home", "AI-Analysis"],
+    login: false,
   }),
 
   methods: {
@@ -77,11 +94,21 @@ export default {
       this.login = false;
     },
     logout() {
+      this.$store.commit("setId", 0);
       this.$store.commit("setName", "");
       this.$store.commit("setEmail", "");
       this.$store.commit("setIsLogin", false);
-    }
-  }
+      this.$store.commit("setCompany1", "");
+      this.$store.commit("setCompany2", "");
+      this.$store.commit("setCompany3", "");
+      this.$router.push("/");
+    },
+    goHome() {
+      // this.$router.go(this.$router.currentRoute); 이건 새로고침
+      const path = "/";
+      if (this.$route.path !== path) this.$router.push(path);
+    },
+  },
 };
 </script>
 
@@ -94,4 +121,11 @@ export default {
   .v-tab
     &::before
       display: none
+</style>
+<style scoped>
+@media (max-width: 450px) {
+  .logo {
+    height : 40px;
+  }
+}
 </style>

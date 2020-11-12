@@ -94,6 +94,14 @@
 <br>
 <br>
 
+## 🗂 ERD
+
+<img src="https://user-images.githubusercontent.com/32058420/98964874-b0453580-254c-11eb-9410-aa85bf6aaeeb.png"/>
+
+
+<br>
+<br>
+<br>
 
 ## ⚗ 환경 설정
 
@@ -124,6 +132,7 @@
 ``` pip install konlpy ```
 
 ``` pip install JPype1-1.0.2-cp36-none-win_amd64.whl ```
+
 (윈도우 환경일 때 설치, 36은 3.6의미 - https://www.lfd.uci.edu/~gohlke/pythonlibs/#jpype 여기서 맞는 버전 설치)
 
 <br>
@@ -149,8 +158,8 @@
 
 | 이름   | 역할                   |
 | ------ | ---------------------- |
-| 윤경준 | 팀장, Backend |
-| 배재원 | Backend, 크롤링 |
-| 김승기 | Backend, 배포, 발표 및 UCC |
-| 박재우 | Frontend, PPT |
+| 윤경준 | 팀장, Frontend |
+| 배재원 | Backend |
+| 김승기 | Backend, 배포, 발표 |
+| 박재우 | Frontend, 파이어베이스, UCC|
 | 배유진 | Frontend, 인공지능 |
